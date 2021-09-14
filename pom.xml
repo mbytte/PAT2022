@@ -17,5 +17,10 @@
             <artifactId>PATDraft</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE124</version>
+        </dependency>
     </dependencies>
 </project>
