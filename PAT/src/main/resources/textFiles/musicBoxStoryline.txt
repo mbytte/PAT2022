@@ -1,8 +1,0 @@
-There's a code on this. Let me see if I can crack it#
--Enter what letters you think are in the word
--If letters are not in the word they will appear in
- the 'wrong letters' box
--If you get a letter right it will appear wherever it 
- exists in the word#
-Hm. A number. I should take note of this.#
-There's also a diary. Let me see what it says:#
