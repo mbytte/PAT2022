@@ -4,22 +4,24 @@
  * and open the template in the editor.
  */
 package Interface;
+
 import Backend.ChangingScreenMethods;
+
 /**
  *
- * @author Meganl
+ * @author megan
  */
-public class StorylineScreen extends javax.swing.JFrame 
+public class AreaInformationScreen extends javax.swing.JFrame
 {
     //creating form
-    public StorylineScreen() 
+    public AreaInformationScreen()
     {
         initComponents();
         setLocationRelativeTo (null);
         
-        //setting text to the information text area
-        String storyline = ChangingScreenMethods.getStoryline();
-        storylineTextArea.setText(storyline);
+        //setting text to the text area
+        String areaInfo = ChangingScreenMethods.getAreaInfo();
+        infoDisplay.setText(areaInfo);
     }
 
     
@@ -30,28 +32,27 @@ public class StorylineScreen extends javax.swing.JFrame
     private void initComponents()
     {
 
-        jButton3 = new javax.swing.JButton();
-        storylineScrollPane = new javax.swing.JScrollPane();
-        storylineTextArea = new javax.swing.JTextArea();
+        infoScrollPane = new javax.swing.JScrollPane();
+        infoDisplay = new javax.swing.JTextArea();
         nextButton = new javax.swing.JButton();
         background = new javax.swing.JLabel();
-
-        jButton3.setText("jButton3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        storylineTextArea.setEditable(false);
-        storylineTextArea.setBackground(new java.awt.Color(51, 51, 51));
-        storylineTextArea.setColumns(20);
-        storylineTextArea.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
-        storylineTextArea.setForeground(new java.awt.Color(0, 0, 0));
-        storylineTextArea.setLineWrap(true);
-        storylineTextArea.setRows(5);
-        storylineTextArea.setWrapStyleWord(true);
-        storylineScrollPane.setViewportView(storylineTextArea);
+        infoScrollPane.setBackground(new java.awt.Color(51, 51, 51));
 
-        getContentPane().add(storylineScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 381, 138));
+        infoDisplay.setEditable(false);
+        infoDisplay.setBackground(new java.awt.Color(51, 51, 51));
+        infoDisplay.setColumns(20);
+        infoDisplay.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
+        infoDisplay.setForeground(new java.awt.Color(255, 255, 255));
+        infoDisplay.setLineWrap(true);
+        infoDisplay.setRows(5);
+        infoDisplay.setWrapStyleWord(true);
+        infoScrollPane.setViewportView(infoDisplay);
+
+        getContentPane().add(infoScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 280, 120));
 
         nextButton.setBackground(new java.awt.Color(51, 51, 51));
         nextButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -63,30 +64,31 @@ public class StorylineScreen extends javax.swing.JFrame
                 nextButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 168, -1, -1));
+        getContentPane().add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 70, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/storylineBg.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 200));
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 190));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     
     
-    //takes user back to the options screen
+    //opens the game and how to play it
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nextButtonActionPerformed
     {//GEN-HEADEREND:event_nextButtonActionPerformed
+        ChangingScreenMethods.openGame();
+        new HowToPlay().setVisible(true);
         this.dispose();
-        ChangingScreenMethods.openNextScreen();
     }//GEN-LAST:event_nextButtonActionPerformed
 
     
-    
+   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JTextArea infoDisplay;
+    private javax.swing.JScrollPane infoScrollPane;
     private javax.swing.JButton nextButton;
-    private javax.swing.JScrollPane storylineScrollPane;
-    private javax.swing.JTextArea storylineTextArea;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,0 +1,7 @@
+There's a pin code needed to open this door.
+#-type in a code by pressing on the numbers
+-press 'Answer' when you are finished
+-if the answer is right then you will move on
+-if the answer is wrong nothing will happen 
+-HINT: use the numbers that you have found and type the words from biggest to smallest
+#What on earth is that?!
