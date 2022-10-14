@@ -15,15 +15,38 @@ import java.util.Scanner;
 public class ChangingScreenMethods
 {
     //variables to know what part of the game the user is going on 
-    public static boolean brokenPictureFramesOption = false;
-    public static boolean tornUpPicturesOption = false;
-    public static boolean musicBoxOption = false;
-    public static boolean doorOption = false;
+    private static boolean brokenPictureFramesOption = false;
+    private static boolean tornUpPicturesOption = false;
+    private static boolean musicBoxOption = false;
+    private static boolean doorOption = false;
     
     //variables
     //file path to the text file
     public static String filePath = getTextfileFilepath();
     
+    
+  
+    //gets the variable wanted and sets the variable true
+    public static void setTrue(String option)
+    {
+        //getting to whatever option is needed
+        if(option.equals("brokenPictureFramesOption"))
+        {
+            brokenPictureFramesOption = true;
+        }
+        else if(option.equals("tornUpPicturesOption"))
+        {
+            tornUpPicturesOption = true;
+        }
+        else if(option.equals("musicBoxOption"))
+        {
+            musicBoxOption = true;
+        }
+        else if(option.equals("doorOption"))
+        {
+            doorOption = true;
+        }
+    }
     
     
     

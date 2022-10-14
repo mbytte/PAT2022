@@ -5,19 +5,31 @@
  */
 package Interface;
 
+import Backend.UserArray;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author megan
  */
 public class UserScreen extends javax.swing.JFrame
 {
-
+    
+    
     /**
      * Creates new form UserScreen
      */
     public UserScreen()
     {
         initComponents();
+        //populating the list with the users
+        UserArray users = new UserArray();
+        ArrayList<String> usersNames = users.getListNames();
+        DefaultListModel listModel = new DefaultListModel();
+        listModel.addAll(usersNames);
+        userList.setModel(listModel);
     }
 
     /**
@@ -33,9 +45,11 @@ public class UserScreen extends javax.swing.JFrame
         title = new javax.swing.JLabel();
         loadButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        userSelection = new javax.swing.JTextField();
+        newUserButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
         background = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        userList = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -66,20 +80,37 @@ public class UserScreen extends javax.swing.JFrame
         });
         getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 90, -1));
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jButton1.setText("New User");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
+        newUserButton.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        newUserButton.setText("New User");
+        newUserButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jButton1ActionPerformed(evt);
+                newUserButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 90, -1));
+        getContentPane().add(newUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 90, -1));
 
-        userSelection.setEditable(false);
-        getContentPane().add(userSelection, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 250, 190));
+        deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 90, -1));
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+
+        userList.setModel(new javax.swing.AbstractListModel<String>()
+        {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(userList);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 260, 190));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -104,10 +135,25 @@ public class UserScreen extends javax.swing.JFrame
 
     
     //opens the userAdderScreen
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
-    {//GEN-HEADEREND:event_jButton1ActionPerformed
-        new UserAdderScreen().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void newUserButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newUserButtonActionPerformed
+    {//GEN-HEADEREND:event_newUserButtonActionPerformed
+        new NewUserScreen().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_newUserButtonActionPerformed
+
+    //deletes the user selected from the user array
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_deleteButtonActionPerformed
+    {//GEN-HEADEREND:event_deleteButtonActionPerformed
+        UserArray userArray = new UserArray();
+        userArray.delete(userList.getSelectedIndex());
+        
+        //refreshing the list
+        UserArray users = new UserArray();
+        ArrayList<String> usersNames = users.getListNames();
+        DefaultListModel listModel = new DefaultListModel();
+        listModel.addAll(usersNames);
+        userList.setModel(listModel);
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
    //main method
     public static void main(String args[])
@@ -154,10 +200,12 @@ public class UserScreen extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JButton exitButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton loadButton;
+    private javax.swing.JButton newUserButton;
     private javax.swing.JLabel title;
-    private javax.swing.JTextField userSelection;
+    private javax.swing.JList<String> userList;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,8 +13,8 @@ import Interface.TaskCompletedScreen;
 public class DoorCodeMethods
 {
     //variables
-    public static String[] userCode = {"", "", ""};
-    public static String[] correctCode = {"7", "9", "6"}; //in the order of longest word length to shortest wordlength
+    private static String[] userCode = {"", "", ""};
+    private static String[] correctCode = {"7", "9", "6"}; //in the order of longest word length to shortest wordlength
     public static boolean win = false;
     
     

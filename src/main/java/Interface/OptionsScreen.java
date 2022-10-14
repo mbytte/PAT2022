@@ -29,9 +29,8 @@ public class OptionsScreen extends javax.swing.JFrame
     private void initComponents()
     {
 
-        screenTitle = new javax.swing.JLabel();
+        homeButton = new javax.swing.JButton();
         dataSheetButton = new javax.swing.JButton();
-        exitButton = new javax.swing.JButton();
         tornUpPicturesOption = new javax.swing.JButton();
         musicBoxOption = new javax.swing.JButton();
         doorOption = new javax.swing.JButton();
@@ -43,10 +42,16 @@ public class OptionsScreen extends javax.swing.JFrame
         setSize(new java.awt.Dimension(0, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        screenTitle.setFont(new java.awt.Font("Juice ITC", 1, 24)); // NOI18N
-        screenTitle.setForeground(new java.awt.Color(255, 255, 255));
-        screenTitle.setText("Pick what you would like to investigate");
-        getContentPane().add(screenTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        homeButton.setBackground(new java.awt.Color(102, 102, 102));
+        homeButton.setText("Home");
+        homeButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                homeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
 
         dataSheetButton.setBackground(new java.awt.Color(102, 102, 102));
         dataSheetButton.setText("Data sheet");
@@ -57,18 +62,7 @@ public class OptionsScreen extends javax.swing.JFrame
                 dataSheetButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(dataSheetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
-
-        exitButton.setBackground(new java.awt.Color(102, 102, 102));
-        exitButton.setText("Exit");
-        exitButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                exitButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
+        getContentPane().add(dataSheetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, -1, -1));
 
         tornUpPicturesOption.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tornUpPicturesOption.setContentAreaFilled(false);
@@ -132,18 +126,12 @@ public class OptionsScreen extends javax.swing.JFrame
         new DataSheetScreen().setVisible(true);
     }//GEN-LAST:event_dataSheetButtonActionPerformed
 
-    //closes this screen and exits the game
-    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_exitButtonActionPerformed
-    {//GEN-HEADEREND:event_exitButtonActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_exitButtonActionPerformed
-
     
     //options
     private void tornUpPicturesOptionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_tornUpPicturesOptionActionPerformed
     {//GEN-HEADEREND:event_tornUpPicturesOptionActionPerformed
         //setting the tornUpPicturesOption variable to true
-        ChangingScreenMethods.tornUpPicturesOption = true;
+        ChangingScreenMethods.setTrue("tornUpPicturesOption");
         //opening and disposing screens
         new AreaInformationScreen().setVisible(true);
         this.dispose();
@@ -152,7 +140,7 @@ public class OptionsScreen extends javax.swing.JFrame
     private void musicBoxOptionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_musicBoxOptionActionPerformed
     {//GEN-HEADEREND:event_musicBoxOptionActionPerformed
         //setting the musicBoxOption variable to true
-        ChangingScreenMethods.musicBoxOption = true;
+        ChangingScreenMethods.setTrue("musicBoxOption");
         //opening and disposing screens
         new AreaInformationScreen().setVisible(true);
         this.dispose();
@@ -161,7 +149,7 @@ public class OptionsScreen extends javax.swing.JFrame
     private void doorOptionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_doorOptionActionPerformed
     {//GEN-HEADEREND:event_doorOptionActionPerformed
         //setting the door variable to true
-        ChangingScreenMethods.doorOption = true;
+        ChangingScreenMethods.setTrue("doorOption");
         //opening and disposing screens
         new AreaInformationScreen().setVisible(true);
         this.dispose();
@@ -170,35 +158,30 @@ public class OptionsScreen extends javax.swing.JFrame
     private void brokenPictureFramesOptionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_brokenPictureFramesOptionActionPerformed
     {//GEN-HEADEREND:event_brokenPictureFramesOptionActionPerformed
         //setting the brokenPictureFrame variable to true
-        ChangingScreenMethods.brokenPictureFramesOption = true;
+        ChangingScreenMethods.setTrue("brokenPictureFramesOption");
         //opening and disposing screens
         new AreaInformationScreen().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_brokenPictureFramesOptionActionPerformed
 
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_homeButtonActionPerformed
+    {//GEN-HEADEREND:event_homeButtonActionPerformed
+        //closing this screen and opening the home screen
+        new UserScreen().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_homeButtonActionPerformed
+
     
     
-    //main method
-    public static void main(String args[])
-    {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                new OptionsScreen().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton brokenPictureFramesOption;
     private javax.swing.JButton dataSheetButton;
     private javax.swing.JButton doorOption;
-    private javax.swing.JButton exitButton;
+    private javax.swing.JButton homeButton;
     private javax.swing.JButton musicBoxOption;
-    private javax.swing.JLabel screenTitle;
     private javax.swing.JButton tornUpPicturesOption;
     // End of variables declaration//GEN-END:variables
 }

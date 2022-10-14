@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class DataSheetMethods
 {
-    //game completed variables (are static so they aren't reset everytime the datasheet is opened)
+    //game completed variables (public so they can be used by other classes)
     public static boolean completedBrokenPicFrames = false;
     public static boolean completedMusicBox = false;
     public static boolean completedTornPics = false;

@@ -158,7 +158,7 @@ public class TornPictureScreen extends javax.swing.JFrame
     
     private void frame1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frame1ActionPerformed
     {//GEN-HEADEREND:event_frame1ActionPerformed
-        //getting the current location of the blank picture
+       //getting the current location of the blank picture
         int blankPicFrame = PuzzleMethods.getBlankPicPos();
         //swapping selected picture with the blank pic
         PuzzleMethods.framePicSwap(1, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
@@ -212,7 +212,7 @@ public class TornPictureScreen extends javax.swing.JFrame
     
     private void frame4ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frame4ActionPerformed
     {//GEN-HEADEREND:event_frame4ActionPerformed
-        //getting the current location of the blank picture
+          //getting the current location of the blank picture
         int blankPicFrame = PuzzleMethods.getBlankPicPos();
         //swapping selected picture with the blank pic
         PuzzleMethods.framePicSwap(4, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
@@ -230,7 +230,7 @@ public class TornPictureScreen extends javax.swing.JFrame
     
     private void frame5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frame5ActionPerformed
     {//GEN-HEADEREND:event_frame5ActionPerformed
-        //getting the current location of the blank picture
+         //getting the current location of the blank picture
         int blankPicFrame = PuzzleMethods.getBlankPicPos();
         //swapping selected picture with the blank pic
         PuzzleMethods.framePicSwap(5, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
