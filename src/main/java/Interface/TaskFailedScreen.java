@@ -81,7 +81,8 @@ public class TaskFailedScreen extends javax.swing.JFrame
     private void retryButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_retryButtonActionPerformed
     {//GEN-HEADEREND:event_retryButtonActionPerformed
         this.dispose();
-        ChangingScreenMethods.openPreviousGame();
+        ChangingScreens screenMethods = new ChangingScreens();
+        screenMethods.openPreviousGame();
     }//GEN-LAST:event_retryButtonActionPerformed
 
     

@@ -5,22 +5,32 @@
  */
 package Interface;
 
-import Backend.DoorCodeMethods;
+import Backend.Games;
 
 /**
  *
  * @author megan
  */
-public class DoorScreen extends javax.swing.JFrame 
+public class DoorCodeScreen extends javax.swing.JFrame 
 {
+    //Variables
+    Games doorCode = new Games();
+    
     //creating form
-    public DoorScreen() 
+    public DoorCodeScreen() 
     {
         initComponents();
         setLocationRelativeTo (null);
     }
 
-    
+    //displays the output
+    public void updateDisplay()
+    {
+        String[] userCode = doorCode.getUserCode();
+        num1Display.setText(userCode[0]);
+        num2Display.setText(userCode[1]);
+        num3Display.setText(userCode[2]);
+    }
     //initialising form
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -231,78 +241,78 @@ public class DoorScreen extends javax.swing.JFrame
         this.dispose();
         new OptionsScreen().setVisible(true);
         //resets the door code for when the user comes back to this screen
-        DoorCodeMethods.reset();
+        doorCode.resetDoorCode();
     }//GEN-LAST:event_homeButtonActionPerformed
    
     
     //adds the selected number to the userCode and updates the display
     private void num1ButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_num1ButtonActionPerformed
     {//GEN-HEADEREND:event_num1ButtonActionPerformed
-        DoorCodeMethods.addNumber(1);
-        DoorCodeMethods.updateDisplay(num1Display, num2Display, num3Display);
+        doorCode.addNumber(1);
+        updateDisplay();
     }//GEN-LAST:event_num1ButtonActionPerformed
 
     private void num2ButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_num2ButtonActionPerformed
     {//GEN-HEADEREND:event_num2ButtonActionPerformed
-        DoorCodeMethods.addNumber(2);
-        DoorCodeMethods.updateDisplay(num1Display, num2Display, num3Display);
+        doorCode.addNumber(2);
+        updateDisplay();
     }//GEN-LAST:event_num2ButtonActionPerformed
 
     private void num3ButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_num3ButtonActionPerformed
     {//GEN-HEADEREND:event_num3ButtonActionPerformed
-        DoorCodeMethods.addNumber(3);
-        DoorCodeMethods.updateDisplay(num1Display, num2Display, num3Display);
+        doorCode.addNumber(3);
+        updateDisplay();
     }//GEN-LAST:event_num3ButtonActionPerformed
 
     private void num4ButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_num4ButtonActionPerformed
     {//GEN-HEADEREND:event_num4ButtonActionPerformed
-        DoorCodeMethods.addNumber(4);
-        DoorCodeMethods.updateDisplay(num1Display, num2Display, num3Display);
+        doorCode.addNumber(4);
+        updateDisplay();
     }//GEN-LAST:event_num4ButtonActionPerformed
 
     private void num5ButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_num5ButtonActionPerformed
     {//GEN-HEADEREND:event_num5ButtonActionPerformed
-        DoorCodeMethods.addNumber(5);
-        DoorCodeMethods.updateDisplay(num1Display, num2Display, num3Display);
+        doorCode.addNumber(5);
+        updateDisplay();
     }//GEN-LAST:event_num5ButtonActionPerformed
 
     private void num6ButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_num6ButtonActionPerformed
     {//GEN-HEADEREND:event_num6ButtonActionPerformed
-        DoorCodeMethods.addNumber(6);
-        DoorCodeMethods.updateDisplay(num1Display, num2Display, num3Display);
+        doorCode.addNumber(6);
+        updateDisplay();
     }//GEN-LAST:event_num6ButtonActionPerformed
 
     private void num7ButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_num7ButtonActionPerformed
     {//GEN-HEADEREND:event_num7ButtonActionPerformed
-        DoorCodeMethods.addNumber(7);
-        DoorCodeMethods.updateDisplay(num1Display, num2Display, num3Display);
+        doorCode.addNumber(7);
+        updateDisplay();
     }//GEN-LAST:event_num7ButtonActionPerformed
 
     private void num8ButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_num8ButtonActionPerformed
     {//GEN-HEADEREND:event_num8ButtonActionPerformed
-        DoorCodeMethods.addNumber(8);
-        DoorCodeMethods.updateDisplay(num1Display, num2Display, num3Display);
+        doorCode.addNumber(8);
+        updateDisplay();
     }//GEN-LAST:event_num8ButtonActionPerformed
 
     private void num9ButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_num9ButtonActionPerformed
     {//GEN-HEADEREND:event_num9ButtonActionPerformed
-        DoorCodeMethods.addNumber(9);
-        DoorCodeMethods.updateDisplay(num1Display, num2Display, num3Display);
+        doorCode.addNumber(9);
+        updateDisplay();
     }//GEN-LAST:event_num9ButtonActionPerformed
 
     private void num0ButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_num0ButtonActionPerformed
     {//GEN-HEADEREND:event_num0ButtonActionPerformed
-        DoorCodeMethods.addNumber(1);
-        DoorCodeMethods.updateDisplay(num1Display, num2Display, num3Display);
+        doorCode.addNumber(1);
+        updateDisplay();
     }//GEN-LAST:event_num0ButtonActionPerformed
 
     //checks if the answer is correct or not
     private void answerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_answerButtonActionPerformed
     {//GEN-HEADEREND:event_answerButtonActionPerformed
-        DoorCodeMethods.winLoseCheck();
-        DoorCodeMethods.updateDisplay(num1Display, num2Display, num3Display);
+        doorCode.winLoseCheck();
+        updateDisplay();;
         //closing the screen if game has been won(can't dispose a screen in a method so it has to be done here)
-        if(DoorCodeMethods.win)
+        if(doorCode.isDoorCodeWin())
         {
             this.dispose();
         }
@@ -311,7 +321,7 @@ public class DoorScreen extends javax.swing.JFrame
     //opens the how to play screen
     private void htpButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_htpButtonActionPerformed
     {//GEN-HEADEREND:event_htpButtonActionPerformed
-        new HowToPlay().setVisible(true);
+        new HowToPlayScreen().setVisible(true);
     }//GEN-LAST:event_htpButtonActionPerformed
 
 

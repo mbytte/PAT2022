@@ -1,2 +1,8 @@
-megan#false#false#false#false
-okay#false#false#false#false
+megan#true#false#false#false
+okay#true#false#false#false
+hello#false#false#false#false
+badum tsh#false#false#false#false
+test#false#false#false#false
+letssee#false#false#false#false
+hello darkness my old friend#false#false#false#false
+nearly there#false#false#false#false

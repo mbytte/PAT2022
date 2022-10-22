@@ -5,16 +5,19 @@
  */
 package Interface;
 
-import Backend.HangmanMethods;
+import Backend.Games;
 
 /**
  *
  * @author Megan
  */
-public class MusicBoxScreen extends javax.swing.JFrame
+public class HangmanScreen extends javax.swing.JFrame
 {
+    //variables
+    Games hangman = new Games();
+    
     //creating form
-    public MusicBoxScreen()
+    public HangmanScreen()
     {
         initComponents();
         setLocationRelativeTo (null);
@@ -23,7 +26,28 @@ public class MusicBoxScreen extends javax.swing.JFrame
         wordDisplay.setText("_ _ _ _ _ _ _ _ _");       
     }
 
+     
+    //updates all the text areas on the screen
+    public void updateScreen()
+    {
+        //setting the textarea to have new updated text
+        wordDisplay.setText(hangman.getDisplayString());
+     
+        //wrong answer display being updated 
+        //setting the textarea to have new updated text
+        worngAnswersDisplay.setText(hangman.getWrongAnswers());
         
+        //clearing the guessing text area so the user doesn't have to remove the letter they already inputted
+        letterGuess.setText("");   
+        
+        //updating the progress bar
+        wrongAnswersProgressBar.setValue(hangman.getProgressBarValue());
+        wrongAnswersProgressBar.repaint();
+    }
+    
+    
+    
+    
     //initialising form
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -162,7 +186,7 @@ public class MusicBoxScreen extends javax.swing.JFrame
     {//GEN-HEADEREND:event_homeButtonActionPerformed
         this.dispose();
         new OptionsScreen().setVisible(true);
-        HangmanMethods.reset();
+        hangman.resetHangman();
     }//GEN-LAST:event_homeButtonActionPerformed
 
     //checks if the input letter is correct and schecks if the user has won the game or not
@@ -170,15 +194,15 @@ public class MusicBoxScreen extends javax.swing.JFrame
     {//GEN-HEADEREND:event_answerButtonActionPerformed
         //getting the input and checking if it is one of the letters
         String inputLetter = letterGuess.getText();
-        HangmanMethods.letterCheck(inputLetter, wrongAnswersProgressBar);
+        hangman.letterCheck(inputLetter);
         //updating the whole screen with new data
-        HangmanMethods.updateScreen(wordDisplay, worngAnswersDisplay, letterGuess, wrongAnswersProgressBar);
+        updateScreen();
         //checking if the game has been won or lost and, if it has, closing the screen (can't dispose a screen in a method so it has to be done here)
-        HangmanMethods.WinLoseCheck();
-        if(HangmanMethods.winOrLose)
+        hangman.WinLoseCheck();
+        if(hangman.isHangmanWonOrLost())
         {
             this.dispose();
-            HangmanMethods.reset();
+            hangman.resetHangman();
         }
             
     }//GEN-LAST:event_answerButtonActionPerformed
@@ -186,7 +210,7 @@ public class MusicBoxScreen extends javax.swing.JFrame
     //opens the how to play screen
     private void htpButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_htpButtonActionPerformed
     {//GEN-HEADEREND:event_htpButtonActionPerformed
-        new HowToPlay().setVisible(true);
+        new HowToPlayScreen().setVisible(true);
     }//GEN-LAST:event_htpButtonActionPerformed
 
     

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Interface;
-import Backend.ChangingScreenMethods;
+import Backend.ChangingScreens;
 /**
  *
  * @author Meganl
@@ -18,7 +18,8 @@ public class StorylineScreen extends javax.swing.JFrame
         setLocationRelativeTo (null);
         
         //setting text to the information text area
-        String storyline = ChangingScreenMethods.getStoryline();
+        ChangingScreens screenMethods = new ChangingScreens();
+        String storyline = screenMethods.getStoryline();
         storylineTextArea.setText(storyline);
     }
 
@@ -77,7 +78,8 @@ public class StorylineScreen extends javax.swing.JFrame
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nextButtonActionPerformed
     {//GEN-HEADEREND:event_nextButtonActionPerformed
         this.dispose();
-        ChangingScreenMethods.openNextScreen();
+        ChangingScreens screenMethods = new ChangingScreens();
+        screenMethods.openNextScreen();
     }//GEN-LAST:event_nextButtonActionPerformed
 
     

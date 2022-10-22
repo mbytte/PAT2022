@@ -11,19 +11,19 @@ import Backend.*;
  */
 public class OptionsScreen extends javax.swing.JFrame
 {
+    //variables
+    ChangingScreens screenMethods = new ChangingScreens();
+    
     //creating form
     public OptionsScreen()
     {
         initComponents();
-        setLocationRelativeTo (null);
-        
-        //setting all the option variables to false (variables in Screenmethods)
-        ChangingScreenMethods.resetOptionVariables();          
+        setLocationRelativeTo (null);    
     }
 
     
-    
-    //initialising form
+   
+     //initialising form
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
@@ -127,40 +127,41 @@ public class OptionsScreen extends javax.swing.JFrame
     }//GEN-LAST:event_dataSheetButtonActionPerformed
 
     
+    
     //options
     private void tornUpPicturesOptionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_tornUpPicturesOptionActionPerformed
     {//GEN-HEADEREND:event_tornUpPicturesOptionActionPerformed
         //setting the tornUpPicturesOption variable to true
-        ChangingScreenMethods.setTrue("tornUpPicturesOption");
+        screenMethods.setTornUpPicturesOption(true);
         //opening and disposing screens
-        new AreaInformationScreen().setVisible(true);
+        new AreaInfoScreen().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_tornUpPicturesOptionActionPerformed
 
     private void musicBoxOptionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_musicBoxOptionActionPerformed
     {//GEN-HEADEREND:event_musicBoxOptionActionPerformed
         //setting the musicBoxOption variable to true
-        ChangingScreenMethods.setTrue("musicBoxOption");
+        screenMethods.setMusicBoxOption(true);
         //opening and disposing screens
-        new AreaInformationScreen().setVisible(true);
+        new AreaInfoScreen().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_musicBoxOptionActionPerformed
 
     private void doorOptionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_doorOptionActionPerformed
     {//GEN-HEADEREND:event_doorOptionActionPerformed
         //setting the door variable to true
-        ChangingScreenMethods.setTrue("doorOption");
+        screenMethods.setDoorOption(true);
         //opening and disposing screens
-        new AreaInformationScreen().setVisible(true);
+        new AreaInfoScreen().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_doorOptionActionPerformed
 
     private void brokenPictureFramesOptionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_brokenPictureFramesOptionActionPerformed
     {//GEN-HEADEREND:event_brokenPictureFramesOptionActionPerformed
         //setting the brokenPictureFrame variable to true
-        ChangingScreenMethods.setTrue("brokenPictureFramesOption");
+        screenMethods.setBrokenPictureFramesOption(true);
         //opening and disposing screens
-        new AreaInformationScreen().setVisible(true);
+        new AreaInfoScreen().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_brokenPictureFramesOptionActionPerformed
 

@@ -12,72 +12,67 @@ import java.util.Scanner;
  *
  * @author Megan
  */
-public class ChangingScreenMethods
+public class ChangingScreens
 {
-    //variables to know what part of the game the user is going on 
+    //variables 
+    //static so they can be shared by all the instances of the object
     private static boolean brokenPictureFramesOption = false;
     private static boolean tornUpPicturesOption = false;
-    private static boolean musicBoxOption = false;
+    private static boolean musicBoxOption= false;
     private static boolean doorOption = false;
-    
-    //variables
-    //file path to the text file
-    public static String filePath = getTextfileFilepath();
+    public String filePath = getTextfileFilepath();
     
     
-  
-    //gets the variable wanted and sets the variable true
-    public static void setTrue(String option)
+    
+    //setters
+    public void setBrokenPictureFramesOption(boolean brokenPictureFramesOption)    
     {
-        //getting to whatever option is needed
-        if(option.equals("brokenPictureFramesOption"))
-        {
-            brokenPictureFramesOption = true;
-        }
-        else if(option.equals("tornUpPicturesOption"))
-        {
-            tornUpPicturesOption = true;
-        }
-        else if(option.equals("musicBoxOption"))
-        {
-            musicBoxOption = true;
-        }
-        else if(option.equals("doorOption"))
-        {
-            doorOption = true;
-        }
+        this.brokenPictureFramesOption = brokenPictureFramesOption;
     }
+    public void setTornUpPicturesOption(boolean tornUpPicturesOption)
+    {
+        this.tornUpPicturesOption = tornUpPicturesOption;
+    }
+    public void setMusicBoxOption(boolean musicBoxOption)
+    {
+        this.musicBoxOption = musicBoxOption;
+    }
+    public void setDoorOption(boolean doorOption)    
+    {
+        this.doorOption = doorOption;
+    }
+
     
     
     
     //resets all the variables to false
-    public static void resetOptionVariables()
+    public void resetOptionVariables()
     {
         brokenPictureFramesOption = false;
         tornUpPicturesOption = false;
         musicBoxOption = false;
         doorOption = false;    
-    }
+    }    
     
     
     
     
     //fetching the textfile that goes with the screen
-    public static String getTextfileFilepath()
+    public String getTextfileFilepath()
     {
         //variables
         String textfileFilePath = "";
                 
         //checks what option was picked to get the textfile associated with it
-        if(brokenPictureFramesOption == true)
+        if(brokenPictureFramesOption)
         {
             textfileFilePath = "data\\brokenPicFramesInfo.txt";
         }
-        else if(tornUpPicturesOption == true)
+        else if(tornUpPicturesOption)
         {
             textfileFilePath = "data\\tornPicsInfo.txt";
         }
-        else if(musicBoxOption == true)
+        else if(musicBoxOption)
         {
             textfileFilePath = "data\\musicBoxInfo.txt";
         }
@@ -88,13 +83,12 @@ public class ChangingScreenMethods
                 
         return textfileFilePath;
     }
- 
     
     
     
     
     //only gets the area information in the text file
-    public static String getAreaInfo()
+    public String getAreaInfo()
     {
         //variables
         String output = "";
@@ -133,7 +127,7 @@ public class ChangingScreenMethods
     
     
     //gets the how to play from the text file
-    public static String getHowToPlay()
+    public String getHowToPlay()
     {
         //variables
         String output = "";
@@ -173,7 +167,7 @@ public class ChangingScreenMethods
     
     
     //gets the information in the text file and returns it as a string
-    public static String getStoryline()
+    public String getStoryline()
     {
         //variables
         String output = "";
@@ -213,27 +207,27 @@ public class ChangingScreenMethods
     
     
     //opens the game screen from the area that the user has selected
-    public static void openGame()
+    public void openGame()
     {
         //checks which options the user has selected and opens the associated screen
-        if(brokenPictureFramesOption == true)
+        if(brokenPictureFramesOption)
         {
-            new BrknPicFrameScreen().setVisible(true);
+            new RiddleScreen().setVisible(true);
         }
         
-        else if(tornUpPicturesOption == true)
+        else if(tornUpPicturesOption)
         {
-            new TornPictureScreen().setVisible(true);
+            new PuzzleScreen().setVisible(true);
         }
         
-        else if(musicBoxOption == true)
+        else if(musicBoxOption)
         {
-            new MusicBoxScreen().setVisible(true);
+            new HangmanScreen().setVisible(true);
         }
         
         else
         {
-            new DoorScreen().setVisible(true);
+            new DoorCodeScreen().setVisible(true);
         }     
     }
     
@@ -241,24 +235,24 @@ public class ChangingScreenMethods
     
     
     //opens the screen that is needed
-    public static void openPreviousGame()
+    public void openPreviousGame()
     {
         //will only ever be needed for these two options (only games that the user can fail)
-        if(brokenPictureFramesOption == true)
+        if(brokenPictureFramesOption)
         {
-            new BrknPicFrameScreen().setVisible(true);
+            new RiddleScreen().setVisible(true);
         }
         
-        else if(musicBoxOption == true)
+        else if(musicBoxOption)
         {
-            new MusicBoxScreen().setVisible(true);
+            new HangmanScreen().setVisible(true);
         }       
     }
     
     
     
     //opens the screen that is needed
-    public static void openNextScreen()
+    public void openNextScreen()
     {
         //opens a screen thats only for the door option
         if(doorOption)

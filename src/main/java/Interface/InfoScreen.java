@@ -4,13 +4,18 @@
  * and open the template in the editor.
  */
 package Interface;
-import Backend.DataSheetMethods;
+import Backend.DataSheet;
+import Backend.Games;
 /**
  *
  * @author megan
  */
 public class InfoScreen extends javax.swing.JFrame
 {
+    //variables
+    Games game = new Games();
+    DataSheet dataSheet = new DataSheet(game.getCurrentUser());
+    
     //creating form
     public InfoScreen()
     {
@@ -18,7 +23,7 @@ public class InfoScreen extends javax.swing.JFrame
         setLocationRelativeTo (null);
         
         //setting the data collected from the chosen area
-        String data = DataSheetMethods.getCompletedGameData();
+        String data = dataSheet.getCompletedGameData();
         infoDisplay.setText(data);
     }
 

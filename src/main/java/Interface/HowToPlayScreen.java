@@ -5,23 +5,24 @@
  */
 package Interface;
 
-import Backend.ChangingScreenMethods;
+import Backend.ChangingScreens;
 
 /**
  *
  * @author Megan
  */
-public class HowToPlay extends javax.swing.JFrame
+public class HowToPlayScreen extends javax.swing.JFrame
 {
 
    //creating form
-    public HowToPlay()
+    public HowToPlayScreen()
     {
         initComponents();
         setLocationRelativeTo (null);
         
         //setting text to the information text area
-        String htp = ChangingScreenMethods.getHowToPlay();
+        ChangingScreens screenMethods = new ChangingScreens();
+        String htp = screenMethods.getHowToPlay();
         informationArea.setText(htp);
     }
 

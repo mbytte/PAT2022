@@ -19,6 +19,8 @@ public class NewUserScreen extends javax.swing.JFrame
     public NewUserScreen()
     {
         initComponents();
+        //setting it to be in the centre of the screen
+        setLocationRelativeTo (null);  
     }
 
     

@@ -10,16 +10,17 @@ import Backend.*;
  *
  * @author Meganl
  */
-public class TornPictureScreen extends javax.swing.JFrame 
+public class PuzzleScreen extends javax.swing.JFrame 
 {
+    //variables
+    Games puzzle = new Games();
+    
     //creating form
-    public TornPictureScreen() 
+    public PuzzleScreen() 
     {
         initComponents();
         setLocationRelativeTo (null);
     }
-
-    
     
     //initialising form
     @SuppressWarnings("unchecked")
@@ -141,17 +142,17 @@ public class TornPictureScreen extends javax.swing.JFrame
     private void frame0ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frame0ActionPerformed
     {//GEN-HEADEREND:event_frame0ActionPerformed
         //getting the current location of the blank picture
-        int blankPicFrame = PuzzleMethods.getBlankPicPos();
+        int blankPicFrame = puzzle.getBlankPicPos();
         //swapping selected picture with the blank pic
-        PuzzleMethods.framePicSwap(0, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
+        puzzle.framePicSwap(0, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
         //checking if the picture is correctly sorted out
-        PuzzleMethods.winCheck();
+        puzzle.winCheck();
         //closing the screen if game has been won(can't dispose a screen in a method so it has to be done here)
-        if(PuzzleMethods.win)
+        if(puzzle.isWin())
         {
             this.dispose();
             //resetting the form back to its original values
-            PuzzleMethods.reset();
+            puzzle.resetPuzzle();
         }
     }//GEN-LAST:event_frame0ActionPerformed
 
@@ -159,17 +160,17 @@ public class TornPictureScreen extends javax.swing.JFrame
     private void frame1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frame1ActionPerformed
     {//GEN-HEADEREND:event_frame1ActionPerformed
        //getting the current location of the blank picture
-        int blankPicFrame = PuzzleMethods.getBlankPicPos();
+        int blankPicFrame = puzzle.getBlankPicPos();
         //swapping selected picture with the blank pic
-        PuzzleMethods.framePicSwap(1, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
+        puzzle.framePicSwap(1, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
         //checking if the picture is correctly sorted out
-        PuzzleMethods.winCheck();
+        puzzle.winCheck();
         //closing the screen if game has been won(can't dispose a screen in a method so it has to be done here)
-        if(PuzzleMethods.win)
+        if(puzzle.isWin())
         {
             this.dispose();
             //resetting the form back to its original values
-            PuzzleMethods.reset();
+            puzzle.resetPuzzle();
         }
     }//GEN-LAST:event_frame1ActionPerformed
 
@@ -177,17 +178,17 @@ public class TornPictureScreen extends javax.swing.JFrame
     private void frame2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frame2ActionPerformed
     {//GEN-HEADEREND:event_frame2ActionPerformed
         //getting the current location of the blank picture
-        int blankPicFrame = PuzzleMethods.getBlankPicPos();
+        int blankPicFrame = puzzle.getBlankPicPos();
         //swapping selected picture with the blank pic
-        PuzzleMethods.framePicSwap(2, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
+        puzzle.framePicSwap(2, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
         //checking if the picture is correctly sorted out
-        PuzzleMethods.winCheck();
+        puzzle.winCheck();
         //closing the screen if game has been won(can't dispose a screen in a method so it has to be done here)
-        if(PuzzleMethods.win)
+        if(puzzle.isWin())
         {
             this.dispose();
             //resetting the form back to its original values
-            PuzzleMethods.reset();
+            puzzle.resetPuzzle();
         }
     }//GEN-LAST:event_frame2ActionPerformed
 
@@ -195,17 +196,17 @@ public class TornPictureScreen extends javax.swing.JFrame
     private void frame3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frame3ActionPerformed
     {//GEN-HEADEREND:event_frame3ActionPerformed
         //getting the current location of the blank picture
-        int blankPicFrame = PuzzleMethods.getBlankPicPos();
+        int blankPicFrame = puzzle.getBlankPicPos();
         //swapping selected picture with the blank pic
-        PuzzleMethods.framePicSwap(3, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
+        puzzle.framePicSwap(3, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
         //checking if the picture is correctly sorted out
-        PuzzleMethods.winCheck();
+        puzzle.winCheck();
         //closing the screen if game has been won(can't dispose a screen in a method so it has to be done here)
-        if(PuzzleMethods.win)
+        if(puzzle.isWin())
         {
             this.dispose();
             //resetting the form back to its original values
-            PuzzleMethods.reset();
+            puzzle.resetPuzzle();
         }
     }//GEN-LAST:event_frame3ActionPerformed
 
@@ -213,17 +214,17 @@ public class TornPictureScreen extends javax.swing.JFrame
     private void frame4ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frame4ActionPerformed
     {//GEN-HEADEREND:event_frame4ActionPerformed
           //getting the current location of the blank picture
-        int blankPicFrame = PuzzleMethods.getBlankPicPos();
+        int blankPicFrame = puzzle.getBlankPicPos();
         //swapping selected picture with the blank pic
-        PuzzleMethods.framePicSwap(4, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
+        puzzle.framePicSwap(4, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
         //checking if the picture is correctly sorted out
-        PuzzleMethods.winCheck();
+        puzzle.winCheck();
         //closing the screen if game has been won(can't dispose a screen in a method so it has to be done here)
-        if(PuzzleMethods.win)
+        if(puzzle.isWin())
         {
             this.dispose();
             //resetting the form back to its original values
-            PuzzleMethods.reset();
+            puzzle.resetPuzzle();
         }
     }//GEN-LAST:event_frame4ActionPerformed
 
@@ -231,17 +232,17 @@ public class TornPictureScreen extends javax.swing.JFrame
     private void frame5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frame5ActionPerformed
     {//GEN-HEADEREND:event_frame5ActionPerformed
          //getting the current location of the blank picture
-        int blankPicFrame = PuzzleMethods.getBlankPicPos();
+        int blankPicFrame = puzzle.getBlankPicPos();
         //swapping selected picture with the blank pic
-        PuzzleMethods.framePicSwap(5, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
+        puzzle.framePicSwap(5, blankPicFrame, frame0, frame1, frame2, frame3, frame4, frame5);        
         //checking if the picture is correctly sorted out
-        PuzzleMethods.winCheck();
+        puzzle.winCheck();
         //closing the screen if game has been won(can't dispose a screen in a method so it has to be done here)
-        if(PuzzleMethods.win)
+        if(puzzle.isWin())
         {
             this.dispose();
             //resetting the form back to its original values
-            PuzzleMethods.reset();
+            puzzle.resetPuzzle();
         }
     }//GEN-LAST:event_frame5ActionPerformed
 
@@ -255,13 +256,13 @@ public class TornPictureScreen extends javax.swing.JFrame
         new OptionsScreen().setVisible(true);
         
         //resetting the picture order to its original order
-        PuzzleMethods.reset();
+        puzzle.resetPuzzle();
     }//GEN-LAST:event_homeButtonActionPerformed
 
     //opens the how to play screen
     private void htpButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_htpButtonActionPerformed
     {//GEN-HEADEREND:event_htpButtonActionPerformed
-        new HowToPlay().setVisible(true);
+        new HowToPlayScreen().setVisible(true);
     }//GEN-LAST:event_htpButtonActionPerformed
 
     

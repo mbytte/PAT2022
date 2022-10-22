@@ -4,16 +4,19 @@
  * and open the template in the editor.
  */
 package Interface;
-import Backend.RiddleMethods;
+import Backend.Games;
 import java.awt.event.KeyListener;
 /**
  *
  * @author Megan
  */
-public class BrknPicFrameScreen extends javax.swing.JFrame
+public class RiddleScreen extends javax.swing.JFrame
 {
+    //variables
+    Games riddle = new Games();
+    
     //creating form
-    public BrknPicFrameScreen()
+    public RiddleScreen()
     {
         initComponents();
         setLocationRelativeTo (null);
@@ -119,20 +122,20 @@ public class BrknPicFrameScreen extends javax.swing.JFrame
     //takes in the user input and checks if tthe user has gotten the right answer
     private void answerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_answerButtonActionPerformed
     {//GEN-HEADEREND:event_answerButtonActionPerformed
-        String userInput = RiddleMethods.getInput(answerTextArea);
-        RiddleMethods.rightWrongCheck(userInput, answerTextArea);
+        String userInput = riddle.getInput(answerTextArea);
+        riddle.rightWrongCheck(userInput, answerTextArea);
         //closing the screen if game has been won or lost(can't dispose a screen in a method so it has to be done here)
-        if(RiddleMethods.winOrLose)
+        if(riddle.isRiddleWonOrLost())
         {
             this.dispose();
-            RiddleMethods.reset();
+            riddle.resetRiddle();
         }
     }//GEN-LAST:event_answerButtonActionPerformed
 
     //opens the how to play screen
     private void htpButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_htpButtonActionPerformed
     {//GEN-HEADEREND:event_htpButtonActionPerformed
-        new HowToPlay().setVisible(true);
+        new HowToPlayScreen().setVisible(true);
     }//GEN-LAST:event_htpButtonActionPerformed
 
     //disposes this screen and opens the options screen
@@ -143,19 +146,18 @@ public class BrknPicFrameScreen extends javax.swing.JFrame
     }//GEN-LAST:event_homeButtonActionPerformed
 
     //checks if the enter button is pressed
-    
     public synchronized void addKeyListener(KeyListener ENTER)
     {
         super.addKeyListener(ENTER); //To change body of generated methods, choose Tools | Templates.
         if(ENTER.equals(true))
         {
-            String userInput = RiddleMethods.getInput(answerTextArea);
-            RiddleMethods.rightWrongCheck(userInput, answerTextArea);
+            String userInput = riddle.getInput(answerTextArea);
+            riddle.rightWrongCheck(userInput, answerTextArea);
             //closing the screen if game has been won or lost(can't dispose a screen in a method so it has to be done here)
-            if(RiddleMethods.winOrLose)
+            if(riddle.isRiddleWonOrLost())
             {
                 this.dispose();
-                RiddleMethods.reset();
+                riddle.resetRiddle();
             }
         }
     }

@@ -5,10 +5,10 @@
  */
 package Interface;
 
-import Backend.UserArray;
+import Backend.User;
+import Backend.UserManager;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -16,8 +16,6 @@ import javax.swing.SwingUtilities;
  */
 public class UserScreen extends javax.swing.JFrame
 {
-    
-    
     /**
      * Creates new form UserScreen
      */
@@ -25,11 +23,13 @@ public class UserScreen extends javax.swing.JFrame
     {
         initComponents();
         //populating the list with the users
-        UserArray users = new UserArray();
+        UserManager users = new UserManager();
         ArrayList<String> usersNames = users.getListNames();
         DefaultListModel listModel = new DefaultListModel();
         listModel.addAll(usersNames);
         userList.setModel(listModel);
+        //setting it to be in the centre of the screen
+        setLocationRelativeTo (null);  
     }
 
     /**
@@ -50,6 +50,7 @@ public class UserScreen extends javax.swing.JFrame
         background = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userList = new javax.swing.JList<>();
+        selectUserMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -112,6 +113,9 @@ public class UserScreen extends javax.swing.JFrame
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 260, 190));
 
+        selectUserMessage.setForeground(new java.awt.Color(250, 0, 0));
+        getContentPane().add(selectUserMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 130, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -126,11 +130,18 @@ public class UserScreen extends javax.swing.JFrame
     //gets the data of the user and loads the game
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_loadButtonActionPerformed
     {//GEN-HEADEREND:event_loadButtonActionPerformed
-       //gets the data of the user
-        
-        //opens the game and closes this screen
-        new OptionsScreen().setVisible(true); // will change when there is a new room to go to
-        this.dispose();
+        //checking if a user was selected
+        if(userList.isSelectionEmpty())
+        {
+            selectUserMessage.setText("Please select a user");
+        } else
+        {
+            //getting the selected index of the user
+            User.setCurrentUserIndex(userList.getSelectedIndex());
+            //opens the game and closes this screen
+            new OptionsScreen().setVisible(true); // will change when there is a new room to go to
+            this.dispose();
+        }        
     }//GEN-LAST:event_loadButtonActionPerformed
 
     
@@ -144,11 +155,11 @@ public class UserScreen extends javax.swing.JFrame
     //deletes the user selected from the user array
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_deleteButtonActionPerformed
     {//GEN-HEADEREND:event_deleteButtonActionPerformed
-        UserArray userArray = new UserArray();
+        UserManager userArray = new UserManager();
         userArray.delete(userList.getSelectedIndex());
         
         //refreshing the list
-        UserArray users = new UserArray();
+        UserManager users = new UserManager();
         ArrayList<String> usersNames = users.getListNames();
         DefaultListModel listModel = new DefaultListModel();
         listModel.addAll(usersNames);
@@ -205,6 +216,7 @@ public class UserScreen extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton loadButton;
     private javax.swing.JButton newUserButton;
+    private javax.swing.JLabel selectUserMessage;
     private javax.swing.JLabel title;
     private javax.swing.JList<String> userList;
     // End of variables declaration//GEN-END:variables

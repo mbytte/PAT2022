@@ -4,13 +4,19 @@
  * and open the template in the editor.
  */
 package Interface;
-import Backend.DataSheetMethods;
+import Backend.DataSheet;
+import Backend.Games;
 /**
  *
  * @author megan
  */
 public class DataSheetScreen extends javax.swing.JFrame
 {
+    //variables
+    Games game = new Games();
+    DataSheet dataSheet = new DataSheet(game.getCurrentUser());
+    
+    
     //creating form
     public DataSheetScreen()
     {
@@ -106,7 +112,7 @@ public class DataSheetScreen extends javax.swing.JFrame
     private void tornUpPicsInfoButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_tornUpPicsInfoButtonActionPerformed
     {//GEN-HEADEREND:event_tornUpPicsInfoButtonActionPerformed
         //to know what option the user picked and what data to fetch
-        DataSheetMethods.game = "tornUpPics";
+        dataSheet.setGame("tornUpPics");
         this.dispose();
         new InfoScreen().setVisible(true);
     }//GEN-LAST:event_tornUpPicsInfoButtonActionPerformed
@@ -114,7 +120,7 @@ public class DataSheetScreen extends javax.swing.JFrame
     private void musicBoxInfoButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_musicBoxInfoButtonActionPerformed
     {//GEN-HEADEREND:event_musicBoxInfoButtonActionPerformed
         //to know what option the user picked and what data to fetch
-        DataSheetMethods.game = "musicBox";
+        dataSheet.setGame("musicBox");
         this.dispose();
         new InfoScreen().setVisible(true);
     }//GEN-LAST:event_musicBoxInfoButtonActionPerformed
@@ -122,7 +128,7 @@ public class DataSheetScreen extends javax.swing.JFrame
     private void brokenPicFramesInfoButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_brokenPicFramesInfoButtonActionPerformed
     {//GEN-HEADEREND:event_brokenPicFramesInfoButtonActionPerformed
         //to know what option the user picked and what data to fetch
-        DataSheetMethods.game = "brokenPicFrames";
+        dataSheet.setGame("brokenPicFrames");
         this.dispose();
         new InfoScreen().setVisible(true);
     }//GEN-LAST:event_brokenPicFramesInfoButtonActionPerformed

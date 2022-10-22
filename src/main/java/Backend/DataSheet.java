@@ -12,29 +12,52 @@ import java.util.Scanner;
  *
  * @author megan
  */
-public class DataSheetMethods
+public class DataSheet
 {
-    //game completed variables (public so they can be used by other classes)
-    public static boolean completedBrokenPicFrames = false;
-    public static boolean completedMusicBox = false;
-    public static boolean completedTornPics = false;
     //variables
-    public static String game = "";
+    private static boolean completedBrokenPicFrames;
+    private static boolean completedMusicBox ;
+    private static boolean completedTornPics;
+    private static String game = "";
+
     
     
-    
-    //resets the variables to false(replaying the game)
-    public static void reset()
+    //constructor
+    public DataSheet(User currentUser)
     {
-        completedBrokenPicFrames = false;
-        completedMusicBox = false;
-        completedTornPics = false;
+        //setting the variables to be whatever data is saved
+        boolean isCompletedBrokenPicFrames = currentUser.isCompletedBrokenPicFrames();
+        boolean isCompletedMusicBox = currentUser.isCompletedMusicBox();
+        boolean isCompletedTornPics = currentUser.isCompletedTornPics();
+        completedBrokenPicFrames = isCompletedBrokenPicFrames;
+        completedMusicBox = isCompletedMusicBox;
+        completedTornPics = isCompletedTornPics;     
+    }
+
+    
+    
+    //setters
+    public void setCompletedBrokenPicFrames(boolean completedBrokenPicFrames)
+    {
+        this.completedBrokenPicFrames = completedBrokenPicFrames;
+    }
+    public void setCompletedMusicBox(boolean completedMusicBox)
+    {
+        this.completedMusicBox = completedMusicBox;
+    }
+    public void setCompletedTornPics(boolean completedTornPics)
+    {
+        this.completedTornPics = completedTornPics;
+    }
+    public void setGame(String game)
+    {
+        this.game = game;
     }
     
     
     
     //gets the data from the text file only if the game task is complete
-    public static String getCompletedGameData()
+    public String getCompletedGameData()
     {
         //variables
         String output = "";

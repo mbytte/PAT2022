@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JTextArea;
 
 /**
  *
@@ -21,39 +20,70 @@ import javax.swing.JTextArea;
 public class UserManager
 {
     //variables
+    private ArrayList<User> users;
     private static String  filepath = "data\\users.txt";
+
+
     
-    
-    //gets all the information in the file path
-    public static String getFileData()
+    //constructor
+    //creates an array list of users
+    public UserManager()
     {
-         //variables
-        File userFile = new File(filepath);
-        String allData = "";
+        //initialising
+        users = new  ArrayList<>();  
+        
         try
         {
-            Scanner lineScanner = new Scanner(userFile);
-            //going through each line and adding them to the output
-            while(lineScanner.hasNextLine())
+            //scanners
+            Scanner fileScanner = new Scanner(new File(filepath));
+            
+            //scanning through the textfile and adding it to the array list
+            while(fileScanner.hasNextLine())
             {
-                allData+=lineScanner.nextLine();
+                //making the scanner to scan through the users
+                String userInfo = fileScanner.nextLine();
+                Scanner lineScanner = new Scanner(userInfo).useDelimiter("#");
+                
+                //getting the various values of the information stored in the textfile
+                String username = lineScanner.next();
+                boolean levelCheck = lineScanner.nextBoolean();
+                boolean levelCheck2 = lineScanner.nextBoolean();
+                boolean levelCheck3 = lineScanner.nextBoolean();
+                boolean levelCheck4 = lineScanner.nextBoolean();
+                //adding a new user to the userArray
+                users.add(new User(username, levelCheck, levelCheck2, levelCheck3, levelCheck4));
+                
+                //closing scanner
+                lineScanner.close();
             }
-         
-        } 
-        catch (FileNotFoundException ex) 
+            
+            //closing scanner
+            fileScanner.close();
+            
+        } catch (FileNotFoundException ex)
         {
             System.out.println("File not found");
         }
-        
-        
-        return allData;
     }
     
     
-    //creates a user and sets all game variables to their default values
+    //getters
+    public ArrayList<User> getUsers()
+    {
+        return users;
+    }
+    //setters
+    public void setUsers(ArrayList<User> users)
+    {
+        this.users = users;
+    }
+    
+    
+
+    
+    //creates a user and adds it to the textfile
     public static void createUser(User user)
     {
-        //retrieves the name that was entered and names a section of the text file
         try 
         {
             //making the writers
@@ -70,29 +100,101 @@ public class UserManager
         catch (IOException ex) 
         {
             System.out.println("File not found");
-        }     
+        } 
     }
     
     
-    //saves the user's progress to a text file for their specific game
-    public static void saveProgress()
+    //creating an arraylist of the names of the objects in the array list
+    public ArrayList<String> getListNames()
     {
-        //saving the right information to the right place
-        //**need to learn how to replace information in a textfile
+        //creating a list of the names
+        ArrayList<String> names = new ArrayList<>();
+               
+        //adding the list of names to the array list
+        for(User user : users)
+        {
+            names.add(user.getUsername());
+        }
+        
+        return names;
     }
     
     
-
-    
-    //loads the user that was selected's profile
-    //**need to learn how to get to a right part of tthe textfile based on something like a keyword(i.e. username)
-    public static Boolean openGame()
+    //deletes a user profile
+    public void delete(int selectedIndex)
     {
-        //gets to the right profile first
-
-
-        return null;
+        //using an arrayList function to delete a user from the selected index in the array list
+        users.remove(selectedIndex);
+        
+        
+        //getting a new String of all the user objects in their textfile format in order to overwrite the textfile
+        String fileOutput = "";
+        for(User user: users)
+        {
+            fileOutput += user.toString() + "\n";
+        }
+        
+        //overwriting the textfile
+        try
+        {
+            //variables
+            FileWriter fileWriter = new FileWriter(filepath, false);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            
+            //overwriting the old data with the new data
+            printWriter.print(fileOutput);
+            
+            //closing writers
+            fileWriter.close();
+            printWriter.close();
+        } catch (IOException ex)
+        {
+            System.out.println("File not found");
+        }
+    }   
+    
+    
+    //gets the selected user
+    public User getSelectedUser(int selectedIndex)
+    {
+        User currentUser = users.get(selectedIndex);
+        return currentUser;
     }
     
-
+    
+    //saves the users new information to the textfile
+    public void save(int selectedIndex, User currentUser)
+    {
+        //variables
+        Games gameObject = new Games(); //creating an object so that we can access the current user variable in the class
+        
+        //deleting and adding the current user to the textfiles and list of users
+        delete(selectedIndex);
+        users.add(selectedIndex, currentUser);
+        
+        //getting a new String of all the user objects in their textfile format in order to overwrite the textfile
+        String fileOutput = "";
+        for(User user: users)
+        {
+            fileOutput += user.toString() + "\n";
+        }
+        
+        //overwriting the textfile
+        try
+        {
+            //variables
+            FileWriter fileWriter = new FileWriter(filepath, false);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            
+            //overwriting the old data with the new data
+            printWriter.print(fileOutput);
+            
+            //closing writers
+            fileWriter.close();
+            printWriter.close();
+        } catch (IOException ex)
+        {
+            System.out.println("File not found");
+        }
+    }
 }

@@ -5,22 +5,25 @@
  */
 package Interface;
 
-import Backend.ChangingScreenMethods;
+import Backend.ChangingScreens;
 
 /**
  *
  * @author megan
  */
-public class AreaInformationScreen extends javax.swing.JFrame
+public class AreaInfoScreen extends javax.swing.JFrame
 {
+    //variables
+    ChangingScreens screenMethods = new ChangingScreens();
+    
     //creating form
-    public AreaInformationScreen()
+    public AreaInfoScreen()
     {
         initComponents();
         setLocationRelativeTo (null);
         
         //setting text to the text area
-        String areaInfo = ChangingScreenMethods.getAreaInfo();
+        String areaInfo = screenMethods.getAreaInfo();
         infoDisplay.setText(areaInfo);
     }
 
@@ -77,8 +80,9 @@ public class AreaInformationScreen extends javax.swing.JFrame
     //opens the game and how to play it
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nextButtonActionPerformed
     {//GEN-HEADEREND:event_nextButtonActionPerformed
-        ChangingScreenMethods.openGame();
-        new HowToPlay().setVisible(true);
+        ChangingScreens screenMethods = new ChangingScreens();
+        screenMethods.openGame();
+        new HowToPlayScreen().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_nextButtonActionPerformed
 
