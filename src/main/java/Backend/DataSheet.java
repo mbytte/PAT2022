@@ -57,7 +57,7 @@ public class DataSheet
     
     
     //gets the data from the text file only if the game task is complete
-    public String getCompletedGameData()
+    public String getCompletedGameData(User currentUser)
     {
         //variables
         String output = "";
@@ -75,7 +75,7 @@ public class DataSheet
             //getting to the position where the required information is in the file
             String info = "";
             //getting info for broken picture frames
-            if(game.equals("brokenPicFrames")&&completedBrokenPicFrames)
+            if(game.equals("brokenPicFrames")&&currentUser.isCompletedBrokenPicFrames())
             {
                 for(int i = 0; i < 2; i++)
                 {     
@@ -83,12 +83,12 @@ public class DataSheet
                 }
             }
             //getting info for music box
-            else if(game.equals("musicBox")&&completedMusicBox)
+            else if(game.equals("musicBox")&&currentUser.isCompletedMusicBox())
             {  
                 info = lineScanner.next();
             }
             //getting info for torn up pictures
-            else if(game.equals("tornUpPics")&&completedTornPics)
+            else if(game.equals("tornUpPics")&&currentUser.isCompletedTornPics())
             {
                 for(int i = 0; i < 3; i++)
                 {     

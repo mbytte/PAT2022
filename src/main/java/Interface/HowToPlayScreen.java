@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import Backend.ChangingScreens;
+import Backend.ChangingScreenMethods;
 
 /**
  *
@@ -21,7 +21,7 @@ public class HowToPlayScreen extends javax.swing.JFrame
         setLocationRelativeTo (null);
         
         //setting text to the information text area
-        ChangingScreens screenMethods = new ChangingScreens();
+        ChangingScreenMethods screenMethods = new ChangingScreenMethods();
         String htp = screenMethods.getHowToPlay();
         informationArea.setText(htp);
     }
@@ -45,25 +45,26 @@ public class HowToPlayScreen extends javax.swing.JFrame
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         informationArea.setEditable(false);
-        informationArea.setBackground(new java.awt.Color(51, 51, 51));
+        informationArea.setBackground(new java.awt.Color(48, 29, 39));
         informationArea.setColumns(20);
-        informationArea.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
-        informationArea.setForeground(new java.awt.Color(204, 204, 204));
+        informationArea.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        informationArea.setForeground(new java.awt.Color(114, 214, 206));
         informationArea.setLineWrap(true);
         informationArea.setRows(5);
         informationArea.setWrapStyleWord(true);
         informationScrollPane.setViewportView(informationArea);
 
-        getContentPane().add(informationScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 370, 160));
+        getContentPane().add(informationScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 320, 180));
 
-        titleLabel.setFont(new java.awt.Font("Juice ITC", 1, 36)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(255, 255, 255));
-        titleLabel.setText("How to play");
-        getContentPane().add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 30));
+        titleLabel.setText("HOW TO PLAY");
+        getContentPane().add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 200, 30));
 
-        okButton.setBackground(new java.awt.Color(51, 51, 51));
-        okButton.setForeground(new java.awt.Color(255, 255, 255));
-        okButton.setText("Ok");
+        okButton.setBackground(new java.awt.Color(48, 29, 39));
+        okButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        okButton.setForeground(new java.awt.Color(114, 214, 206));
+        okButton.setText("OK");
         okButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -71,10 +72,10 @@ public class HowToPlayScreen extends javax.swing.JFrame
                 okButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(okButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
+        getContentPane().add(okButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/htpBg.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 240));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DataDisplayScreen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 280));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

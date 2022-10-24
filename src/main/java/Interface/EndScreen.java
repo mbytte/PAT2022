@@ -34,20 +34,21 @@ public class EndScreen extends javax.swing.JFrame
 
         tbcLabel = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
-        newGameButton = new javax.swing.JButton();
+        homeButton = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tbcLabel.setFont(new java.awt.Font("Juice ITC", 1, 36)); // NOI18N
-        tbcLabel.setForeground(new java.awt.Color(0, 0, 0));
+        tbcLabel.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        tbcLabel.setForeground(new java.awt.Color(255, 255, 255));
         tbcLabel.setText("To be continued...");
-        getContentPane().add(tbcLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 200, 60));
+        getContentPane().add(tbcLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 230, 60));
 
-        exitButton.setBackground(new java.awt.Color(255, 204, 153));
-        exitButton.setForeground(new java.awt.Color(0, 0, 0));
-        exitButton.setText("Exit");
+        exitButton.setBackground(new java.awt.Color(48, 29, 39));
+        exitButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        exitButton.setForeground(new java.awt.Color(114, 214, 206));
+        exitButton.setText("EXIT");
         exitButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -55,22 +56,23 @@ public class EndScreen extends javax.swing.JFrame
                 exitButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
+        getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 90, -1));
 
-        newGameButton.setBackground(new java.awt.Color(255, 204, 153));
-        newGameButton.setForeground(new java.awt.Color(0, 0, 0));
-        newGameButton.setText("New Game");
-        newGameButton.addActionListener(new java.awt.event.ActionListener()
+        homeButton.setBackground(new java.awt.Color(48, 29, 39));
+        homeButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        homeButton.setForeground(new java.awt.Color(114, 214, 206));
+        homeButton.setText("HOME");
+        homeButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                newGameButtonActionPerformed(evt);
+                homeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(newGameButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 90, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/wallBg.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 180));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/EndScreen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 280));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -84,18 +86,18 @@ public class EndScreen extends javax.swing.JFrame
     }//GEN-LAST:event_exitButtonActionPerformed
 
     //closes this screen and then resets everything; opens back at the options screen
-    private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newGameButtonActionPerformed
-    {//GEN-HEADEREND:event_newGameButtonActionPerformed
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_homeButtonActionPerformed
+    {//GEN-HEADEREND:event_homeButtonActionPerformed
         this.dispose();
         new UserScreen().setVisible(true);
-    }//GEN-LAST:event_newGameButtonActionPerformed
+    }//GEN-LAST:event_homeButtonActionPerformed
 
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton exitButton;
-    private javax.swing.JButton newGameButton;
+    private javax.swing.JButton homeButton;
     private javax.swing.JLabel tbcLabel;
     // End of variables declaration//GEN-END:variables
 }

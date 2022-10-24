@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Interface;
-import Backend.ChangingScreens;
+import Backend.ChangingScreenMethods;
 /**
  *
  * @author Meganl
@@ -18,7 +18,7 @@ public class StorylineScreen extends javax.swing.JFrame
         setLocationRelativeTo (null);
         
         //setting text to the information text area
-        ChangingScreens screenMethods = new ChangingScreens();
+        ChangingScreenMethods screenMethods = new ChangingScreenMethods();
         String storyline = screenMethods.getStoryline();
         storylineTextArea.setText(storyline);
     }
@@ -43,19 +43,20 @@ public class StorylineScreen extends javax.swing.JFrame
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         storylineTextArea.setEditable(false);
-        storylineTextArea.setBackground(new java.awt.Color(51, 51, 51));
+        storylineTextArea.setBackground(new java.awt.Color(48, 29, 39));
         storylineTextArea.setColumns(20);
-        storylineTextArea.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
-        storylineTextArea.setForeground(new java.awt.Color(0, 0, 0));
+        storylineTextArea.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        storylineTextArea.setForeground(new java.awt.Color(114, 214, 206));
         storylineTextArea.setLineWrap(true);
         storylineTextArea.setRows(5);
         storylineTextArea.setWrapStyleWord(true);
         storylineScrollPane.setViewportView(storylineTextArea);
 
-        getContentPane().add(storylineScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 381, 138));
+        getContentPane().add(storylineScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 320, 180));
 
-        nextButton.setBackground(new java.awt.Color(51, 51, 51));
-        nextButton.setForeground(new java.awt.Color(0, 0, 0));
+        nextButton.setBackground(new java.awt.Color(48, 29, 39));
+        nextButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        nextButton.setForeground(new java.awt.Color(114, 214, 206));
         nextButton.setText("Next");
         nextButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -64,10 +65,10 @@ public class StorylineScreen extends javax.swing.JFrame
                 nextButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 168, -1, -1));
+        getContentPane().add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/storylineBg.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 200));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DataDisplayScreen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 280));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,8 +79,9 @@ public class StorylineScreen extends javax.swing.JFrame
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nextButtonActionPerformed
     {//GEN-HEADEREND:event_nextButtonActionPerformed
         this.dispose();
-        ChangingScreens screenMethods = new ChangingScreens();
+        ChangingScreenMethods screenMethods = new ChangingScreenMethods();
         screenMethods.openNextScreen();
+        screenMethods.resetOptionVariables();
     }//GEN-LAST:event_nextButtonActionPerformed
 
     

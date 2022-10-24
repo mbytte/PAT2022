@@ -12,13 +12,16 @@ import Backend.*;
 public class OptionsScreen extends javax.swing.JFrame
 {
     //variables
-    ChangingScreens screenMethods = new ChangingScreens();
+    ChangingScreenMethods screenMethods = new ChangingScreenMethods();
     
     //creating form
     public OptionsScreen()
     {
         initComponents();
         setLocationRelativeTo (null);    
+        
+        //making sure all the destinantion variables are set to false so the correct screens will be presented
+        screenMethods.resetOptionVariables();
     }
 
     
@@ -42,8 +45,10 @@ public class OptionsScreen extends javax.swing.JFrame
         setSize(new java.awt.Dimension(0, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        homeButton.setBackground(new java.awt.Color(102, 102, 102));
-        homeButton.setText("Home");
+        homeButton.setBackground(new java.awt.Color(48, 29, 39));
+        homeButton.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        homeButton.setForeground(new java.awt.Color(114, 214, 206));
+        homeButton.setText("HOME");
         homeButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -51,10 +56,12 @@ public class OptionsScreen extends javax.swing.JFrame
                 homeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
+        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 80, 30));
 
-        dataSheetButton.setBackground(new java.awt.Color(102, 102, 102));
-        dataSheetButton.setText("Data sheet");
+        dataSheetButton.setBackground(new java.awt.Color(48, 29, 39));
+        dataSheetButton.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        dataSheetButton.setForeground(new java.awt.Color(114, 214, 206));
+        dataSheetButton.setText("DATA SHEET");
         dataSheetButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -62,7 +69,7 @@ public class OptionsScreen extends javax.swing.JFrame
                 dataSheetButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(dataSheetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, -1, -1));
+        getContentPane().add(dataSheetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 10, 120, 30));
 
         tornUpPicturesOption.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tornUpPicturesOption.setContentAreaFilled(false);
@@ -73,9 +80,8 @@ public class OptionsScreen extends javax.swing.JFrame
                 tornUpPicturesOptionActionPerformed(evt);
             }
         });
-        getContentPane().add(tornUpPicturesOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 160, 40));
+        getContentPane().add(tornUpPicturesOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 190, 190));
 
-        musicBoxOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/musicBox.png"))); // NOI18N
         musicBoxOption.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         musicBoxOption.setContentAreaFilled(false);
         musicBoxOption.addActionListener(new java.awt.event.ActionListener()
@@ -85,7 +91,7 @@ public class OptionsScreen extends javax.swing.JFrame
                 musicBoxOptionActionPerformed(evt);
             }
         });
-        getContentPane().add(musicBoxOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 80, 80));
+        getContentPane().add(musicBoxOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 80, 80));
 
         doorOption.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         doorOption.setContentAreaFilled(false);
@@ -96,9 +102,8 @@ public class OptionsScreen extends javax.swing.JFrame
                 doorOptionActionPerformed(evt);
             }
         });
-        getContentPane().add(doorOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 80, 170));
+        getContentPane().add(doorOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 90, 100));
 
-        brokenPictureFramesOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/brokenPictureFrame.jpg"))); // NOI18N
         brokenPictureFramesOption.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         brokenPictureFramesOption.setContentAreaFilled(false);
         brokenPictureFramesOption.addActionListener(new java.awt.event.ActionListener()
@@ -108,10 +113,10 @@ public class OptionsScreen extends javax.swing.JFrame
                 brokenPictureFramesOptionActionPerformed(evt);
             }
         });
-        getContentPane().add(brokenPictureFramesOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 70, 50));
+        getContentPane().add(brokenPictureFramesOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 80, 130));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/brokenDownRoom.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 440));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/OptionsScreen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -132,7 +137,7 @@ public class OptionsScreen extends javax.swing.JFrame
     private void tornUpPicturesOptionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_tornUpPicturesOptionActionPerformed
     {//GEN-HEADEREND:event_tornUpPicturesOptionActionPerformed
         //setting the tornUpPicturesOption variable to true
-        screenMethods.setTornUpPicturesOption(true);
+        screenMethods.setTornPicsOption(true);
         //opening and disposing screens
         new AreaInfoScreen().setVisible(true);
         this.dispose();
@@ -159,7 +164,7 @@ public class OptionsScreen extends javax.swing.JFrame
     private void brokenPictureFramesOptionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_brokenPictureFramesOptionActionPerformed
     {//GEN-HEADEREND:event_brokenPictureFramesOptionActionPerformed
         //setting the brokenPictureFrame variable to true
-        screenMethods.setBrokenPictureFramesOption(true);
+        screenMethods.setBrokenPicFramesOption(true);
         //opening and disposing screens
         new AreaInfoScreen().setVisible(true);
         this.dispose();

@@ -5,7 +5,6 @@
  */
 package Interface;
 
-import Backend.User;
 import Backend.UserManager;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -47,20 +46,23 @@ public class UserScreen extends javax.swing.JFrame
         exitButton = new javax.swing.JButton();
         newUserButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
-        background = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userList = new javax.swing.JList<>();
         selectUserMessage = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        title.setFont(new java.awt.Font("Edwardian Script ITC", 0, 48)); // NOI18N
-        title.setText("The House of Mysteries");
-        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 12, 337, 72));
+        title.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        title.setForeground(new java.awt.Color(255, 255, 255));
+        title.setText("THE HOUSE OF MYSTERIES");
+        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 370, 72));
 
-        loadButton.setFont(new java.awt.Font("Juice ITC", 0, 24)); // NOI18N
-        loadButton.setText("Load");
+        loadButton.setBackground(new java.awt.Color(48, 29, 39));
+        loadButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        loadButton.setForeground(new java.awt.Color(114, 214, 206));
+        loadButton.setText("LOAD");
         loadButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -68,10 +70,12 @@ public class UserScreen extends javax.swing.JFrame
                 loadButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(loadButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 90, -1));
+        getContentPane().add(loadButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 120, -1));
 
-        exitButton.setFont(new java.awt.Font("Juice ITC", 0, 24)); // NOI18N
-        exitButton.setText("Exit");
+        exitButton.setBackground(new java.awt.Color(48, 29, 39));
+        exitButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        exitButton.setForeground(new java.awt.Color(114, 214, 206));
+        exitButton.setText("EXIT");
         exitButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -79,10 +83,12 @@ public class UserScreen extends javax.swing.JFrame
                 exitButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 90, -1));
+        getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 120, -1));
 
-        newUserButton.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        newUserButton.setText("New User");
+        newUserButton.setBackground(new java.awt.Color(48, 29, 39));
+        newUserButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        newUserButton.setForeground(new java.awt.Color(114, 214, 206));
+        newUserButton.setText("NEW USER");
         newUserButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -90,9 +96,12 @@ public class UserScreen extends javax.swing.JFrame
                 newUserButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(newUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 90, -1));
+        getContentPane().add(newUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 120, -1));
 
-        deleteButton.setText("Delete");
+        deleteButton.setBackground(new java.awt.Color(48, 29, 39));
+        deleteButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        deleteButton.setForeground(new java.awt.Color(114, 214, 206));
+        deleteButton.setText("DELETE");
         deleteButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -100,9 +109,11 @@ public class UserScreen extends javax.swing.JFrame
                 deleteButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 90, -1));
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 120, -1));
 
+        userList.setBackground(new java.awt.Color(48, 29, 39));
+        userList.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        userList.setForeground(new java.awt.Color(114, 214, 206));
         userList.setModel(new javax.swing.AbstractListModel<String>()
         {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -111,10 +122,17 @@ public class UserScreen extends javax.swing.JFrame
         });
         jScrollPane1.setViewportView(userList);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 260, 190));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 240, 190));
 
+        selectUserMessage.setBackground(new java.awt.Color(48, 29, 39));
+        selectUserMessage.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         selectUserMessage.setForeground(new java.awt.Color(250, 0, 0));
-        getContentPane().add(selectUserMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 130, -1));
+        selectUserMessage.setToolTipText("");
+        selectUserMessage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(selectUserMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 180, 20));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/UserSceen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -134,10 +152,11 @@ public class UserScreen extends javax.swing.JFrame
         if(userList.isSelectionEmpty())
         {
             selectUserMessage.setText("Please select a user");
+            selectUserMessage.setOpaque(true);
         } else
         {
             //getting the selected index of the user
-            User.setCurrentUserIndex(userList.getSelectedIndex());
+            UserManager.setCurrentUserIndex(userList.getSelectedIndex());
             //opens the game and closes this screen
             new OptionsScreen().setVisible(true); // will change when there is a new room to go to
             this.dispose();

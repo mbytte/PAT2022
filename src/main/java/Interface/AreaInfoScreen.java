@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import Backend.ChangingScreens;
+import Backend.ChangingScreenMethods;
 
 /**
  *
@@ -14,7 +14,7 @@ import Backend.ChangingScreens;
 public class AreaInfoScreen extends javax.swing.JFrame
 {
     //variables
-    ChangingScreens screenMethods = new ChangingScreens();
+    ChangingScreenMethods screenMethods = new ChangingScreenMethods();
     
     //creating form
     public AreaInfoScreen()
@@ -46,20 +46,21 @@ public class AreaInfoScreen extends javax.swing.JFrame
         infoScrollPane.setBackground(new java.awt.Color(51, 51, 51));
 
         infoDisplay.setEditable(false);
-        infoDisplay.setBackground(new java.awt.Color(51, 51, 51));
+        infoDisplay.setBackground(new java.awt.Color(48, 29, 39));
         infoDisplay.setColumns(20);
-        infoDisplay.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
-        infoDisplay.setForeground(new java.awt.Color(255, 255, 255));
+        infoDisplay.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        infoDisplay.setForeground(new java.awt.Color(114, 214, 206));
         infoDisplay.setLineWrap(true);
         infoDisplay.setRows(5);
         infoDisplay.setWrapStyleWord(true);
         infoScrollPane.setViewportView(infoDisplay);
 
-        getContentPane().add(infoScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 280, 120));
+        getContentPane().add(infoScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 320, 180));
 
-        nextButton.setBackground(new java.awt.Color(51, 51, 51));
-        nextButton.setForeground(new java.awt.Color(0, 0, 0));
-        nextButton.setText("Next");
+        nextButton.setBackground(new java.awt.Color(48, 29, 39));
+        nextButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        nextButton.setForeground(new java.awt.Color(114, 214, 206));
+        nextButton.setText("NEXT");
         nextButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -67,10 +68,10 @@ public class AreaInfoScreen extends javax.swing.JFrame
                 nextButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 70, -1));
+        getContentPane().add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 90, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/storylineBg.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 190));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DataDisplayScreen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -80,7 +81,7 @@ public class AreaInfoScreen extends javax.swing.JFrame
     //opens the game and how to play it
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nextButtonActionPerformed
     {//GEN-HEADEREND:event_nextButtonActionPerformed
-        ChangingScreens screenMethods = new ChangingScreens();
+        ChangingScreenMethods screenMethods = new ChangingScreenMethods();
         screenMethods.openGame();
         new HowToPlayScreen().setVisible(true);
         this.dispose();

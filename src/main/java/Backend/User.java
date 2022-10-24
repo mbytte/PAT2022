@@ -18,10 +18,9 @@ public class User
     private boolean completedTornPics;
     private boolean completedDoor;
     
-    //variables
-    private static int currentUserIndex;
     
-    public User(String username, boolean completedBrokenPicFrames, boolean completedMusicBox, boolean completedTornPics, boolean completedDoor)
+    //constructor
+    public User(String username, boolean completedBrokenPicFrames, boolean completedTornPics , boolean completedMusicBox, boolean completedDoor)
     {
         this.username = username;
         this.completedBrokenPicFrames = completedBrokenPicFrames;
@@ -47,20 +46,13 @@ public class User
     {
         completedDoor= true;
     }
-    public static void setCurrentUserIndex(int index)
-    {
-        currentUserIndex = index;
-    }
+    
     
     
     //gettters
     public String getUsername()
     {
         return username;
-    }
-    public static int getCurrentUserIndex()
-    {
-        return currentUserIndex;
     }
     public boolean isCompletedBrokenPicFrames()
     {
@@ -81,13 +73,6 @@ public class User
     
     
     
-    //puts all the properties of the object into a String
-    public String getUser(String username)
-    {
-        String userProps = username + "#" + completedBrokenPicFrames + "#" + completedTornPics + "#" + completedMusicBox + "#" + completedDoor;
-        return userProps;
-    }
-
     @Override
     public String toString()
     {

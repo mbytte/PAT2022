@@ -37,7 +37,6 @@ public class DoorCodeScreen extends javax.swing.JFrame
     private void initComponents()
     {
 
-        screenTitle = new javax.swing.JLabel();
         num0Button = new javax.swing.JButton();
         num1Button = new javax.swing.JButton();
         num2Button = new javax.swing.JButton();
@@ -61,10 +60,6 @@ public class DoorCodeScreen extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        screenTitle.setFont(new java.awt.Font("Juice ITC", 1, 36)); // NOI18N
-        screenTitle.setText("Type in password");
-        getContentPane().add(screenTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 40));
-
         num0Button.setBorderPainted(false);
         num0Button.setContentAreaFilled(false);
         num0Button.addActionListener(new java.awt.event.ActionListener()
@@ -74,7 +69,7 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 num0ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(num0Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 40, 30));
+        getContentPane().add(num0Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 40, 30));
 
         num1Button.setBorderPainted(false);
         num1Button.setContentAreaFilled(false);
@@ -85,7 +80,7 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 num1ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(num1Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 30, 30));
+        getContentPane().add(num1Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 30, 30));
 
         num2Button.setBorderPainted(false);
         num2Button.setContentAreaFilled(false);
@@ -96,7 +91,7 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 num2ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(num2Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 40, 30));
+        getContentPane().add(num2Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 40, 30));
 
         num3Button.setBorderPainted(false);
         num3Button.setContentAreaFilled(false);
@@ -107,7 +102,7 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 num3ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(num3Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, 30));
+        getContentPane().add(num3Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, 30));
 
         num4Button.setBorderPainted(false);
         num4Button.setContentAreaFilled(false);
@@ -118,7 +113,7 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 num4ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(num4Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 30, 30));
+        getContentPane().add(num4Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 30, 30));
 
         num5Button.setBorderPainted(false);
         num5Button.setContentAreaFilled(false);
@@ -129,7 +124,7 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 num5ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(num5Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 40, 30));
+        getContentPane().add(num5Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 40, 30));
 
         num6Button.setBorderPainted(false);
         num6Button.setContentAreaFilled(false);
@@ -140,7 +135,7 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 num6ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(num6Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 40, 30));
+        getContentPane().add(num6Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 40, 30));
 
         num7Button.setBorderPainted(false);
         num7Button.setContentAreaFilled(false);
@@ -151,7 +146,7 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 num7ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(num7Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 30, 30));
+        getContentPane().add(num7Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 30, 30));
 
         num8Button.setBorderPainted(false);
         num8Button.setContentAreaFilled(false);
@@ -162,7 +157,7 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 num8ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(num8Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 40, 30));
+        getContentPane().add(num8Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 40, 30));
 
         num9Button.setBorderPainted(false);
         num9Button.setContentAreaFilled(false);
@@ -173,13 +168,15 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 num9ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(num9Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, 30));
+        getContentPane().add(num9Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, 30));
 
         keypadPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/keypad.jpg"))); // NOI18N
-        getContentPane().add(keypadPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 160, 190));
+        getContentPane().add(keypadPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 160, 190));
 
-        answerButton.setBackground(java.awt.SystemColor.controlDkShadow);
-        answerButton.setText("Answer");
+        answerButton.setBackground(new java.awt.Color(48, 29, 39));
+        answerButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        answerButton.setForeground(new java.awt.Color(114, 214, 206));
+        answerButton.setText("ANSWER");
         answerButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -187,10 +184,12 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 answerButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(answerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
+        getContentPane().add(answerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 110, -1));
 
-        homeButton.setBackground(java.awt.SystemColor.controlDkShadow);
-        homeButton.setText("Home");
+        homeButton.setBackground(new java.awt.Color(48, 29, 39));
+        homeButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        homeButton.setForeground(new java.awt.Color(114, 214, 206));
+        homeButton.setText("<-");
         homeButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -198,26 +197,34 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 homeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
+        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         num2Display.setEditable(false);
         num2Display.setBackground(new java.awt.Color(153, 153, 153));
-        getContentPane().add(num2Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 40, 40));
+        num2Display.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        num2Display.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(num2Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 40, 40));
 
         num1Display.setEditable(false);
         num1Display.setBackground(new java.awt.Color(153, 153, 153));
-        getContentPane().add(num1Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 40, 40));
+        num1Display.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        num1Display.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(num1Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 40, 40));
 
         num3Display.setEditable(false);
         num3Display.setBackground(new java.awt.Color(153, 153, 153));
-        getContentPane().add(num3Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 40, 40));
+        num3Display.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        num3Display.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(num3Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 40, 40));
 
-        pincodeBackground.setBackground(new java.awt.Color(102, 102, 102));
+        pincodeBackground.setBackground(new java.awt.Color(80, 81, 85));
         pincodeBackground.setOpaque(true);
-        getContentPane().add(pincodeBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 160, 60));
+        getContentPane().add(pincodeBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 160, 60));
 
-        htpButton.setBackground(new java.awt.Color(102, 102, 102));
-        htpButton.setText("How to Play");
+        htpButton.setBackground(new java.awt.Color(48, 29, 39));
+        htpButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        htpButton.setForeground(new java.awt.Color(114, 214, 206));
+        htpButton.setText("HOW TO PLAY");
         htpButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -225,10 +232,10 @@ public class DoorCodeScreen extends javax.swing.JFrame
                 htpButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(htpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
+        getContentPane().add(htpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/wallBg.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 330));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DoorScreen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -309,7 +316,7 @@ public class DoorCodeScreen extends javax.swing.JFrame
     //checks if the answer is correct or not
     private void answerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_answerButtonActionPerformed
     {//GEN-HEADEREND:event_answerButtonActionPerformed
-        doorCode.winLoseCheck();
+        doorCode.riddleWinCheck();
         updateDisplay();;
         //closing the screen if game has been won(can't dispose a screen in a method so it has to be done here)
         if(doorCode.isDoorCodeWin())
@@ -345,6 +352,5 @@ public class DoorCodeScreen extends javax.swing.JFrame
     private javax.swing.JButton num8Button;
     private javax.swing.JButton num9Button;
     private javax.swing.JLabel pincodeBackground;
-    private javax.swing.JLabel screenTitle;
     // End of variables declaration//GEN-END:variables
 }

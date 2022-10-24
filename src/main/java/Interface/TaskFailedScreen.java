@@ -34,14 +34,17 @@ public class TaskFailedScreen extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        taskFailedLabel.setFont(new java.awt.Font("Juice ITC", 1, 48)); // NOI18N
-        taskFailedLabel.setForeground(new java.awt.Color(153, 153, 153));
+        taskFailedLabel.setBackground(new java.awt.Color(48, 29, 39));
+        taskFailedLabel.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        taskFailedLabel.setForeground(new java.awt.Color(151, 36, 80));
         taskFailedLabel.setText("TASK FAILED");
-        getContentPane().add(taskFailedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 12, 191, 63));
+        taskFailedLabel.setOpaque(true);
+        getContentPane().add(taskFailedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 40));
 
-        retryButton.setBackground(new java.awt.Color(51, 51, 51));
-        retryButton.setForeground(new java.awt.Color(0, 0, 0));
-        retryButton.setText("Retry");
+        retryButton.setBackground(new java.awt.Color(48, 29, 39));
+        retryButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        retryButton.setForeground(new java.awt.Color(151, 36, 80));
+        retryButton.setText("RETRY");
         retryButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -49,11 +52,12 @@ public class TaskFailedScreen extends javax.swing.JFrame
                 retryButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(retryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 110, -1, -1));
+        getContentPane().add(retryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
-        homeButton.setBackground(new java.awt.Color(51, 51, 51));
-        homeButton.setForeground(new java.awt.Color(0, 0, 0));
-        homeButton.setText("Home");
+        homeButton.setBackground(new java.awt.Color(48, 29, 39));
+        homeButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        homeButton.setForeground(new java.awt.Color(151, 36, 80));
+        homeButton.setText("HOME");
         homeButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -61,10 +65,10 @@ public class TaskFailedScreen extends javax.swing.JFrame
                 homeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 110, -1, -1));
+        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/taskFailedBg.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 160));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/TaskFailedScreen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 160));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -81,7 +85,7 @@ public class TaskFailedScreen extends javax.swing.JFrame
     private void retryButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_retryButtonActionPerformed
     {//GEN-HEADEREND:event_retryButtonActionPerformed
         this.dispose();
-        ChangingScreens screenMethods = new ChangingScreens();
+        ChangingScreenMethods screenMethods = new ChangingScreenMethods();
         screenMethods.openPreviousGame();
     }//GEN-LAST:event_retryButtonActionPerformed
 

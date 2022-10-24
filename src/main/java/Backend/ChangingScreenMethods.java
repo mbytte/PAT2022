@@ -12,26 +12,26 @@ import java.util.Scanner;
  *
  * @author Megan
  */
-public class ChangingScreens
+public class ChangingScreenMethods
 {
     //variables 
     //static so they can be shared by all the instances of the object
-    private static boolean brokenPictureFramesOption = false;
-    private static boolean tornUpPicturesOption = false;
+    private static boolean brokenPicFramesOption = false;
+    private static boolean tornPicsOption = false;
     private static boolean musicBoxOption= false;
     private static boolean doorOption = false;
-    public String filePath = getTextfileFilepath();
+    private String filePath = getFilepath();
     
     
     
     //setters
-    public void setBrokenPictureFramesOption(boolean brokenPictureFramesOption)    
+    public void setBrokenPicFramesOption(boolean brokenPicFramesOption)    
     {
-        this.brokenPictureFramesOption = brokenPictureFramesOption;
+        this.brokenPicFramesOption = brokenPicFramesOption;
     }
-    public void setTornUpPicturesOption(boolean tornUpPicturesOption)
+    public void setTornPicsOption(boolean tornPicsOption)
     {
-        this.tornUpPicturesOption = tornUpPicturesOption;
+        this.tornPicsOption = tornPicsOption;
     }
     public void setMusicBoxOption(boolean musicBoxOption)
     {
@@ -48,8 +48,8 @@ public class ChangingScreens
     //resets all the variables to false
     public void resetOptionVariables()
     {
-        brokenPictureFramesOption = false;
-        tornUpPicturesOption = false;
+        brokenPicFramesOption = false;
+        tornPicsOption = false;
         musicBoxOption = false;
         doorOption = false;    
     }    
@@ -58,17 +58,17 @@ public class ChangingScreens
     
     
     //fetching the textfile that goes with the screen
-    public String getTextfileFilepath()
+    public String getFilepath()
     {
         //variables
         String textfileFilePath = "";
                 
         //checks what option was picked to get the textfile associated with it
-        if(brokenPictureFramesOption)
+        if(brokenPicFramesOption)
         {
             textfileFilePath = "data\\brokenPicFramesInfo.txt";
         }
-        else if(tornUpPicturesOption)
+        else if(tornPicsOption)
         {
             textfileFilePath = "data\\tornPicsInfo.txt";
         }
@@ -92,7 +92,7 @@ public class ChangingScreens
     {
         //variables
         String output = "";
-        filePath = getTextfileFilepath();
+        filePath = getFilepath();
         
         try 
         {
@@ -131,7 +131,7 @@ public class ChangingScreens
     {
         //variables
         String output = "";
-        filePath = getTextfileFilepath();
+        filePath = getFilepath();
         
         try 
         {
@@ -171,7 +171,7 @@ public class ChangingScreens
     {
         //variables
         String output = "";
-        filePath = getTextfileFilepath();
+        filePath = getFilepath();
         
         try 
         {
@@ -210,12 +210,12 @@ public class ChangingScreens
     public void openGame()
     {
         //checks which options the user has selected and opens the associated screen
-        if(brokenPictureFramesOption)
+        if(brokenPicFramesOption)
         {
             new RiddleScreen().setVisible(true);
         }
-        
-        else if(tornUpPicturesOption)
+
+        else if(tornPicsOption)
         {
             new PuzzleScreen().setVisible(true);
         }
@@ -238,7 +238,7 @@ public class ChangingScreens
     public void openPreviousGame()
     {
         //will only ever be needed for these two options (only games that the user can fail)
-        if(brokenPictureFramesOption)
+        if(brokenPicFramesOption)
         {
             new RiddleScreen().setVisible(true);
         }

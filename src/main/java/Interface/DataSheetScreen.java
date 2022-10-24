@@ -41,9 +41,10 @@ public class DataSheetScreen extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        doneButton.setBackground(new java.awt.Color(255, 255, 204));
-        doneButton.setForeground(new java.awt.Color(0, 0, 0));
-        doneButton.setText("Done");
+        doneButton.setBackground(new java.awt.Color(48, 39, 39));
+        doneButton.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        doneButton.setForeground(new java.awt.Color(114, 214, 206));
+        doneButton.setText("<-");
         doneButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -51,11 +52,12 @@ public class DataSheetScreen extends javax.swing.JFrame
                 doneButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(doneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 167, -1, -1));
+        getContentPane().add(doneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
 
-        tornUpPicsInfoButton.setBackground(new java.awt.Color(255, 255, 204));
-        tornUpPicsInfoButton.setForeground(new java.awt.Color(0, 0, 0));
-        tornUpPicsInfoButton.setText("Torn up Pictures");
+        tornUpPicsInfoButton.setBackground(new java.awt.Color(48, 29, 39));
+        tornUpPicsInfoButton.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        tornUpPicsInfoButton.setForeground(new java.awt.Color(114, 214, 206));
+        tornUpPicsInfoButton.setText("PUZZLE");
         tornUpPicsInfoButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -63,11 +65,12 @@ public class DataSheetScreen extends javax.swing.JFrame
                 tornUpPicsInfoButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(tornUpPicsInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 62, -1, -1));
+        getContentPane().add(tornUpPicsInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, 20));
 
-        musicBoxInfoButton.setBackground(new java.awt.Color(255, 255, 204));
-        musicBoxInfoButton.setForeground(new java.awt.Color(0, 0, 0));
-        musicBoxInfoButton.setText("Music box");
+        musicBoxInfoButton.setBackground(new java.awt.Color(48, 29, 39));
+        musicBoxInfoButton.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        musicBoxInfoButton.setForeground(new java.awt.Color(114, 214, 206));
+        musicBoxInfoButton.setText("HANGMAN");
         musicBoxInfoButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -75,11 +78,12 @@ public class DataSheetScreen extends javax.swing.JFrame
                 musicBoxInfoButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(musicBoxInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 98, -1, -1));
+        getContentPane().add(musicBoxInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, 20));
 
-        brokenPicFramesInfoButton.setBackground(new java.awt.Color(255, 255, 204));
-        brokenPicFramesInfoButton.setForeground(new java.awt.Color(0, 0, 0));
-        brokenPicFramesInfoButton.setText("Broken picture frame");
+        brokenPicFramesInfoButton.setBackground(new java.awt.Color(48, 29, 39));
+        brokenPicFramesInfoButton.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        brokenPicFramesInfoButton.setForeground(new java.awt.Color(114, 214, 206));
+        brokenPicFramesInfoButton.setText("RIDDLE");
         brokenPicFramesInfoButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -87,15 +91,15 @@ public class DataSheetScreen extends javax.swing.JFrame
                 brokenPicFramesInfoButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(brokenPicFramesInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 134, -1, -1));
+        getContentPane().add(brokenPicFramesInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, 20));
 
-        headingLabel.setFont(new java.awt.Font("Juice ITC", 1, 36)); // NOI18N
-        headingLabel.setForeground(new java.awt.Color(0, 0, 0));
-        headingLabel.setText("Data:");
-        getContentPane().add(headingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 113, -1));
+        headingLabel.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        headingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        headingLabel.setText("DATA");
+        getContentPane().add(headingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 80, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dataSheetBg.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 210));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DataSheetScreen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 200));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

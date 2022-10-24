@@ -34,14 +34,17 @@ public class TaskCompletedScreen extends javax.swing.JFrame
         setBackground(new java.awt.Color(51, 51, 51));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        headingLabel.setFont(new java.awt.Font("Juice ITC", 1, 48)); // NOI18N
-        headingLabel.setForeground(new java.awt.Color(204, 102, 0));
+        headingLabel.setBackground(new java.awt.Color(48, 29, 39));
+        headingLabel.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        headingLabel.setForeground(new java.awt.Color(75, 167, 71));
         headingLabel.setText("TASK COMPLETE!");
-        getContentPane().add(headingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 80));
+        headingLabel.setOpaque(true);
+        getContentPane().add(headingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 230, 40));
 
-        nextButton.setBackground(new java.awt.Color(204, 102, 0));
-        nextButton.setForeground(new java.awt.Color(0, 0, 0));
-        nextButton.setText("Next");
+        nextButton.setBackground(new java.awt.Color(48, 29, 39));
+        nextButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        nextButton.setForeground(new java.awt.Color(75, 167, 71));
+        nextButton.setText("NEXT");
         nextButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -49,10 +52,10 @@ public class TaskCompletedScreen extends javax.swing.JFrame
                 nextButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+        getContentPane().add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/taskCompleteBg.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 160));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/TaskCompletedScreen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 160));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -23,7 +23,7 @@ public class HangmanScreen extends javax.swing.JFrame
         setLocationRelativeTo (null);
         
         //displaying the array that the user will be working with so it starts with it already loaded into the text area
-        wordDisplay.setText("_ _ _ _ _ _ _ _ _");       
+        wordDisplay.setText("_ _ _ _ _ _ _ _ _");      
     }
 
      
@@ -54,7 +54,6 @@ public class HangmanScreen extends javax.swing.JFrame
     private void initComponents()
     {
 
-        screenTitle = new javax.swing.JLabel();
         wordDisplaySP = new javax.swing.JScrollPane();
         wordDisplay = new javax.swing.JTextArea();
         wrongAnswersProgressBar = new javax.swing.JProgressBar();
@@ -72,55 +71,52 @@ public class HangmanScreen extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        screenTitle.setFont(new java.awt.Font("Juice ITC", 1, 48)); // NOI18N
-        screenTitle.setForeground(new java.awt.Color(255, 255, 255));
-        screenTitle.setText("FInd the Password");
-        getContentPane().add(screenTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 300, 40));
-
         wordDisplaySP.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         wordDisplaySP.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         wordDisplay.setEditable(false);
-        wordDisplay.setBackground(new java.awt.Color(51, 51, 51));
+        wordDisplay.setBackground(new java.awt.Color(48, 29, 39));
         wordDisplay.setColumns(20);
-        wordDisplay.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
-        wordDisplay.setForeground(new java.awt.Color(204, 204, 204));
+        wordDisplay.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        wordDisplay.setForeground(new java.awt.Color(114, 214, 206));
         wordDisplay.setLineWrap(true);
         wordDisplay.setRows(5);
         wordDisplay.setWrapStyleWord(true);
         wordDisplay.setRequestFocusEnabled(false);
         wordDisplaySP.setViewportView(wordDisplay);
 
-        getContentPane().add(wordDisplaySP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 240, 100));
+        getContentPane().add(wordDisplaySP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 250, 70));
 
-        wrongAnswersProgressBar.setBackground(new java.awt.Color(51, 51, 51));
-        wrongAnswersProgressBar.setForeground(new java.awt.Color(51, 0, 0));
-        getContentPane().add(wrongAnswersProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 240, 20));
+        wrongAnswersProgressBar.setBackground(new java.awt.Color(48, 29, 39));
+        wrongAnswersProgressBar.setForeground(new java.awt.Color(114, 214, 206));
+        getContentPane().add(wrongAnswersProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 250, 20));
 
-        subHead1.setFont(new java.awt.Font("Juice ITC", 1, 24)); // NOI18N
-        subHead1.setForeground(new java.awt.Color(255, 255, 255));
-        subHead1.setText("Wrong letters");
-        getContentPane().add(subHead1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        subHead1.setBackground(new java.awt.Color(48, 29, 39));
+        subHead1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        subHead1.setForeground(new java.awt.Color(114, 214, 206));
+        subHead1.setText("WRONG LETTERS");
+        subHead1.setOpaque(true);
+        getContentPane().add(subHead1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         wrongLettersSP.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         wrongLettersSP.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         worngAnswersDisplay.setEditable(false);
-        worngAnswersDisplay.setBackground(new java.awt.Color(51, 51, 51));
+        worngAnswersDisplay.setBackground(new java.awt.Color(48, 29, 39));
         worngAnswersDisplay.setColumns(20);
-        worngAnswersDisplay.setFont(new java.awt.Font("Lucida Bright", 1, 36)); // NOI18N
-        worngAnswersDisplay.setForeground(new java.awt.Color(204, 204, 204));
+        worngAnswersDisplay.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        worngAnswersDisplay.setForeground(new java.awt.Color(114, 214, 206));
         worngAnswersDisplay.setLineWrap(true);
         worngAnswersDisplay.setRows(5);
         worngAnswersDisplay.setWrapStyleWord(true);
         wrongLettersSP.setViewportView(worngAnswersDisplay);
 
-        getContentPane().add(wrongLettersSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 240, 70));
+        getContentPane().add(wrongLettersSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 210, 70));
 
-        htpButton.setBackground(new java.awt.Color(51, 51, 51));
-        htpButton.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        htpButton.setForeground(new java.awt.Color(204, 204, 204));
-        htpButton.setText("How to play");
+        htpButton.setBackground(new java.awt.Color(48, 29, 39));
+        htpButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        htpButton.setForeground(new java.awt.Color(114, 214, 206));
+        htpButton.setText("HOW TO PLAY");
         htpButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -128,12 +124,12 @@ public class HangmanScreen extends javax.swing.JFrame
                 htpButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(htpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, 30));
+        getContentPane().add(htpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, 30));
 
-        homeButton.setBackground(new java.awt.Color(51, 51, 51));
-        homeButton.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        homeButton.setForeground(new java.awt.Color(204, 204, 204));
-        homeButton.setText("Home");
+        homeButton.setBackground(new java.awt.Color(48, 29, 39));
+        homeButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        homeButton.setForeground(new java.awt.Color(114, 214, 206));
+        homeButton.setText("<-");
         homeButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -141,29 +137,31 @@ public class HangmanScreen extends javax.swing.JFrame
                 homeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, 30));
+        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 30));
 
-        subHead2.setFont(new java.awt.Font("Juice ITC", 1, 24)); // NOI18N
-        subHead2.setForeground(new java.awt.Color(255, 255, 255));
-        subHead2.setText("Letter Guess");
-        getContentPane().add(subHead2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, 20));
+        subHead2.setBackground(new java.awt.Color(48, 29, 39));
+        subHead2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        subHead2.setForeground(new java.awt.Color(114, 214, 206));
+        subHead2.setText("LETTER");
+        subHead2.setOpaque(true);
+        getContentPane().add(subHead2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, -1, 20));
 
         letterGuessSP.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         letterGuessSP.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        letterGuess.setBackground(new java.awt.Color(51, 51, 51));
+        letterGuess.setBackground(new java.awt.Color(48, 29, 39));
         letterGuess.setColumns(20);
-        letterGuess.setFont(new java.awt.Font("Lucida Bright", 1, 36)); // NOI18N
-        letterGuess.setForeground(new java.awt.Color(204, 204, 204));
+        letterGuess.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        letterGuess.setForeground(new java.awt.Color(114, 214, 206));
         letterGuess.setRows(5);
         letterGuessSP.setViewportView(letterGuess);
 
-        getContentPane().add(letterGuessSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 110, 50));
+        getContentPane().add(letterGuessSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 70, 50));
 
-        answerButton.setBackground(new java.awt.Color(153, 153, 153));
-        answerButton.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
-        answerButton.setForeground(new java.awt.Color(0, 0, 0));
-        answerButton.setText("TEST LETTER");
+        answerButton.setBackground(new java.awt.Color(48, 29, 39));
+        answerButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        answerButton.setForeground(new java.awt.Color(114, 214, 206));
+        answerButton.setText("TEST");
         answerButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -171,10 +169,11 @@ public class HangmanScreen extends javax.swing.JFrame
                 answerButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(answerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 130, 30));
+        getContentPane().add(answerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 80, 30));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jewelryBoxClosed.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 280));
+        background.setBackground(new java.awt.Color(48, 29, 39));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/HangmanScreen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 280));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -198,8 +197,8 @@ public class HangmanScreen extends javax.swing.JFrame
         //updating the whole screen with new data
         updateScreen();
         //checking if the game has been won or lost and, if it has, closing the screen (can't dispose a screen in a method so it has to be done here)
-        hangman.WinLoseCheck();
-        if(hangman.isHangmanWonOrLost())
+        hangman.hangmanWinCheck();
+        if(hangman.isHangmanWin())
         {
             this.dispose();
             hangman.resetHangman();
@@ -221,7 +220,6 @@ public class HangmanScreen extends javax.swing.JFrame
     private javax.swing.JButton htpButton;
     private javax.swing.JTextArea letterGuess;
     private javax.swing.JScrollPane letterGuessSP;
-    private javax.swing.JLabel screenTitle;
     private javax.swing.JLabel subHead1;
     private javax.swing.JLabel subHead2;
     private javax.swing.JTextArea wordDisplay;

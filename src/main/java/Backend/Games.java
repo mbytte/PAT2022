@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JTextArea;
 
 /**
  *
@@ -22,7 +21,7 @@ public class Games
     //all game variables and objects
     private UserManager userManager = new UserManager();
     private ArrayList <User> currentArrayList = userManager.getUsers();
-    private int currentUserIndex = User.getCurrentUserIndex();
+    private int currentUserIndex = UserManager.getCurrentUserIndex();
     private User currentUser = userManager.getSelectedUser(currentUserIndex);
     private DataSheet dataSheet = new DataSheet(currentUser);
 
@@ -32,10 +31,8 @@ public class Games
         return currentUser;
     }
     
-    
-    
-    //changes the current array list to comply with the new info
-    public void changeCurrentArrayList()
+    //updates the current array list to comply with the new info
+    private void updateCurrentArrayList()
     {
         currentArrayList.remove(currentUserIndex);
         currentArrayList.add(currentUserIndex, currentUser);
@@ -48,14 +45,15 @@ public class Games
     
     //HANGMAN
     //variables
-    private final String[] completedWordArray = {"b", "u", "t", "t", "e", "r", "f", "l", "y"};
-    private final String completedWordStr = "butterfly";
-    private final int completedWordLength = completedWordStr.length();
-    private String[] userArray = {"_", "_", "_", "_", "_", "_", "_", "_", "_"};
+    private final String[] correctWordArray = {"b", "u", "t", "t", "e", "r", "f", "l", "y"};
+    private final String correctWordString = "butterfly";
+    private final int correctWordLength = correctWordString.length();
+    private String[] usersWordArray = {"_", "_", "_", "_", "_", "_", "_", "_", "_"};
     private String wrongAnswers = "";
     private int numWrongAnswers = 0;
-    private static boolean hangmanWonOrLost = false;
     private int progressBarValue = 0;
+    private static boolean hangmanWin = false;
+
     
     
     //getters
@@ -67,24 +65,19 @@ public class Games
         //adding all the letters from the userArray into a string
         for(int arrayPosition = 0; arrayPosition < 9; arrayPosition++)
         {
-           displayString += userArray[arrayPosition] + " "; 
+           displayString += usersWordArray[arrayPosition] + " "; 
         }
         
         return displayString;
     }
-    
-    //gets the wrongAnswers
     public String getWrongAnswers()
     {
         return wrongAnswers;
     }
-    
-    //gets if the user has won or lost
-    public boolean isHangmanWonOrLost()
+    public boolean isHangmanWin()
     {
-        return hangmanWonOrLost;
+        return hangmanWin;
     }
-
     public int getProgressBarValue()
     {
         return progressBarValue;
@@ -98,12 +91,12 @@ public class Games
         //resets everything in the  user array
         for(int arrayPos = 0; arrayPos < 9; arrayPos++)
         {
-            userArray[arrayPos] = "_";
+            usersWordArray[arrayPos] = "_";
         }
  
         //resetting to original values
         numWrongAnswers = 0;
-        hangmanWonOrLost = false;
+        hangmanWin = false;
         wrongAnswers = "";
     }
     
@@ -116,12 +109,12 @@ public class Games
         int numRight = 0;
         
         //checks through each postion of the completedWordArray individually
-        for(int arrayPos = 0; arrayPos < completedWordLength; arrayPos++)
+        for(int arrayPos = 0; arrayPos < correctWordLength; arrayPos++)
         {
             //correct letter
-            if(completedWordArray[arrayPos].equals(inputLetter))
+            if(correctWordArray[arrayPos].equals(inputLetter))
             {
-                userArray[arrayPos] = inputLetter;
+                usersWordArray[arrayPos] = inputLetter;
                 numRight++;
             }
             
@@ -138,31 +131,31 @@ public class Games
     
     
     //checks if the user has user up all their chances
-    public void WinLoseCheck()        
+    public void hangmanWinCheck()        
     {
         //win
-        if(Arrays.equals(completedWordArray, userArray))
+        if(Arrays.equals(correctWordArray, usersWordArray))
         {
             new TaskCompletedScreen().setVisible(true);
             //setting the completed variable to true (for data sheet)
             dataSheet.setCompletedMusicBox(true);
             //setting the winOrLose variable to true to be used to close the screen
-            hangmanWonOrLost = true;
+            hangmanWin = true;
             
             //sets the user objects variable to be true and changes the information
             currentUser.setMusicBoxTrue();
-            changeCurrentArrayList();
+            updateCurrentArrayList();
             userManager.setUsers(currentArrayList);
-            userManager.save(User.getCurrentUserIndex(), currentUser);
+            userManager.save(UserManager.getCurrentUserIndex(), currentUser);
         }
         
         //lose
-        //the user  only gets 5 chances
+        //the user only gets 5 chances
         if(numWrongAnswers  == 5)
         {
             new TaskFailedScreen().setVisible(true);
             //setting the winOrLose variable to true to be used to close the screen
-            hangmanWonOrLost = true;
+            hangmanWin = true;
         }
     }
     
@@ -174,7 +167,7 @@ public class Games
     //class variables
     private static String[] currentPicOrder = {"/images/4.jpg", "/images/1.jpg", "/images/0.jpg", "/images/3.jpg", "/images/2.jpg", "/images/5.jpg"};
     private static String[] frameStr = {"frame0", "frame1", "frame2", "frame3", "frame4", "frame5"};
-    private boolean win = false;
+    private boolean puzzleWin = false;
     
     
     
@@ -192,11 +185,10 @@ public class Games
     }
     
     //gets the value of 'win'
-    public boolean isWin()
+    public boolean isPuzzleWin()
     {
-        return win;
+        return puzzleWin;
     }
-    
     
     //screen number 
     public int getScreenNumber(String screenStr)
@@ -242,7 +234,8 @@ public class Games
     
     
     //swaps two buttons' pictures
-    public void pictureSwap(JButton button1, JButton button2, String button1Str, String button2Str)
+    //helper method to framePicSwap
+    private void pictureSwap(JButton button1, JButton button2, String button1Str, String button2Str)
     {    
         //getting the image icons in those current buttons
         String button1Icon = getPic(button1Str);
@@ -345,7 +338,7 @@ public class Games
     
     
     //checks if the order that the user has arranged the pictures in is the exact way they are supposed to be arranged
-    public void winCheck()
+    public void puzzleWinCheck()
     {
         //variables
         //the order that the pictures should be arranged in in order for the player to win
@@ -376,10 +369,10 @@ public class Games
             //setting the completed variable to true (for data sheet)
             dataSheet.setCompletedTornPics(true);
             //setting the win variable to true to be used to close the screen
-            win = true;
+            puzzleWin = true;
             //sets the user objects variable to be true
             currentUser.setTornPicsTrue();
-            userManager.save(User.getCurrentUserIndex(), currentUser);
+            userManager.save(UserManager.getCurrentUserIndex(), currentUser);
         }
     }
     
@@ -396,7 +389,7 @@ public class Games
         currentPicOrder[5] = "/images/5.jpg";
         
         //setting to the win variable to false
-        win = false;
+        puzzleWin = false;
     }
     
     
@@ -407,13 +400,13 @@ public class Games
     //RIDDLE
     //variables
     private static int lives = 3;
-    private boolean riddleWonOrLost = false;
+    private boolean riddleWin = false;
     
     
-    //gets the value of 'riddleWonOrLost'
-    public boolean isRiddleWonOrLost()
+    //getters
+    public boolean isRiddleWin()
     {
-        return riddleWonOrLost;
+        return riddleWin;
     }
 
     
@@ -421,20 +414,12 @@ public class Games
     public void resetRiddle()
     {
         lives = 3;
-        riddleWonOrLost = false;
-    }
-    
-    
-    //gets input from the text area
-    public String getInput(JTextArea inputTextArea)
-    {
-        String input = inputTextArea.getText();
-        return input;
+        riddleWin = false;
     }
     
     
     //checks if the answer is right
-    public void rightWrongCheck(String userInput, JTextArea inputTextArea)
+    public void rightWrongCheck(String userInput)
     {
         //right answer
         if(userInput.equals("seven")||userInput.equals("Seven")||userInput.equals("7"))
@@ -443,27 +428,25 @@ public class Games
             //setting the completed variable to true (for data sheet)
             dataSheet.setCompletedBrokenPicFrames(true);
             //setting the winOrLose variable to true to be used to close the screen
-            riddleWonOrLost = true;
+            riddleWin = true;
             //sets the user objects variable to be true
             currentUser.setBrokenPicFramesTrue();
-            changeCurrentArrayList();
+            updateCurrentArrayList();
             userManager.setUsers(currentArrayList);
-            userManager.save(User.getCurrentUserIndex(), currentUser);
+            userManager.save(UserManager.getCurrentUserIndex(), currentUser);
         }
         
         //wrong answer
         else
         {
-            //clearing the inputTextArea for the user to try again with
-            inputTextArea.setText("");
             //subtracting from number of lives
             lives--;
             //check if the user has lost the game
             if(lives == 0)
             {
                 new TaskFailedScreen().setVisible(true);
-                //setting the winOrLose variable to true to be used to close the screen
-                riddleWonOrLost = true;
+                //setting the riddleWin variable to true to be used to close the screen
+                riddleWin = true;
             }
         }
     }
@@ -474,23 +457,18 @@ public class Games
     //variables
     private String[] userCode = {"", "", ""};
     private final String[] correctCode = {"7", "9", "6"}; //in the order of longest word length to shortest wordlength
-    public boolean doorCodeWin = false;
+    private boolean doorCodeWin = false;
     
     
-    
-    //gets the user code
+    //getters
     public String[] getUserCode()
     {
         return userCode;
     }
-    
-    
-    //gets 'doorCodeWin'
     public boolean isDoorCodeWin()
     {
         return doorCodeWin;
     }
-    
     
     
     //adds to the user code depending on the button that was pressed
@@ -520,7 +498,7 @@ public class Games
     
     
     //checks if the answer is right ot wrong
-    public void winLoseCheck()
+    public void riddleWinCheck()
     {
         //variables
         int numCorrect = 0;
@@ -542,7 +520,7 @@ public class Games
             doorCodeWin = true;
             //sets the user objects variable to be true
             currentUser.setDoorTrue();
-            userManager.save(User.getCurrentUserIndex(), currentUser);
+            userManager.save(UserManager.getCurrentUserIndex(), currentUser);
         }
         //lose
         else

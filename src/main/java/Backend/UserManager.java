@@ -22,8 +22,9 @@ public class UserManager
     //variables
     private ArrayList<User> users;
     private static String  filepath = "data\\users.txt";
+    private static int currentUserIndex;
 
-
+    
     
     //constructor
     //creates an array list of users
@@ -67,22 +68,36 @@ public class UserManager
     }
     
     
+    
     //getters
     public ArrayList<User> getUsers()
     {
         return users;
     }
+    public static int getCurrentUserIndex()
+    {
+        return currentUserIndex;
+    }
+    public User getSelectedUser(int selectedIndex)
+    {
+        User currentUser = users.get(selectedIndex);
+        return currentUser;
+    }
+
     //setters
     public void setUsers(ArrayList<User> users)
     {
         this.users = users;
     }
+    public static void setCurrentUserIndex(int index)
+    {
+        currentUserIndex = index;
+    }
     
     
 
-    
     //creates a user and adds it to the textfile
-    public static void createUser(User user)
+    public void createUser(User user)
     {
         try 
         {
@@ -104,6 +119,7 @@ public class UserManager
     }
     
     
+    
     //creating an arraylist of the names of the objects in the array list
     public ArrayList<String> getListNames()
     {
@@ -120,12 +136,12 @@ public class UserManager
     }
     
     
+    
     //deletes a user profile
     public void delete(int selectedIndex)
     {
         //using an arrayList function to delete a user from the selected index in the array list
         users.remove(selectedIndex);
-        
         
         //getting a new String of all the user objects in their textfile format in order to overwrite the textfile
         String fileOutput = "";
@@ -153,13 +169,6 @@ public class UserManager
         }
     }   
     
-    
-    //gets the selected user
-    public User getSelectedUser(int selectedIndex)
-    {
-        User currentUser = users.get(selectedIndex);
-        return currentUser;
-    }
     
     
     //saves the users new information to the textfile

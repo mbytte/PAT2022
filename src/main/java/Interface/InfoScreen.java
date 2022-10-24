@@ -6,6 +6,7 @@
 package Interface;
 import Backend.DataSheet;
 import Backend.Games;
+import Backend.User;
 /**
  *
  * @author megan
@@ -14,7 +15,9 @@ public class InfoScreen extends javax.swing.JFrame
 {
     //variables
     Games game = new Games();
-    DataSheet dataSheet = new DataSheet(game.getCurrentUser());
+    User currentUser = game.getCurrentUser();
+    DataSheet dataSheet = new DataSheet(currentUser);
+
     
     //creating form
     public InfoScreen()
@@ -23,7 +26,7 @@ public class InfoScreen extends javax.swing.JFrame
         setLocationRelativeTo (null);
         
         //setting the data collected from the chosen area
-        String data = dataSheet.getCompletedGameData();
+        String data = dataSheet.getCompletedGameData(currentUser);
         infoDisplay.setText(data);
     }
 
@@ -45,9 +48,10 @@ public class InfoScreen extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        doneButton.setBackground(new java.awt.Color(255, 255, 204));
-        doneButton.setForeground(new java.awt.Color(0, 0, 0));
-        doneButton.setText("Done");
+        doneButton.setBackground(new java.awt.Color(48, 29, 39));
+        doneButton.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        doneButton.setForeground(new java.awt.Color(114, 214, 206));
+        doneButton.setText("DONE");
         doneButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -55,11 +59,12 @@ public class InfoScreen extends javax.swing.JFrame
                 doneButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(doneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, -1));
+        getContentPane().add(doneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, -1));
 
-        backButton.setBackground(new java.awt.Color(255, 255, 204));
-        backButton.setForeground(new java.awt.Color(0, 0, 0));
-        backButton.setText("Back");
+        backButton.setBackground(new java.awt.Color(48, 29, 39));
+        backButton.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        backButton.setForeground(new java.awt.Color(114, 214, 206));
+        backButton.setText("<-");
         backButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -67,27 +72,29 @@ public class InfoScreen extends javax.swing.JFrame
                 backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 50, 20));
 
         infoDisplay.setEditable(false);
-        infoDisplay.setBackground(new java.awt.Color(255, 255, 204));
+        infoDisplay.setBackground(new java.awt.Color(48, 29, 39));
         infoDisplay.setColumns(20);
-        infoDisplay.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
-        infoDisplay.setForeground(new java.awt.Color(0, 0, 0));
+        infoDisplay.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        infoDisplay.setForeground(new java.awt.Color(114, 214, 206));
         infoDisplay.setLineWrap(true);
         infoDisplay.setRows(5);
         infoDisplay.setWrapStyleWord(true);
         infoDisplayScrollPane.setViewportView(infoDisplay);
 
-        getContentPane().add(infoDisplayScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 376, 137));
+        getContentPane().add(infoDisplayScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 376, 170));
 
-        heading.setFont(new java.awt.Font("Juice ITC", 0, 36)); // NOI18N
-        heading.setForeground(new java.awt.Color(0, 0, 0));
-        heading.setText("Data collected:");
-        getContentPane().add(heading, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 30));
+        heading.setBackground(new java.awt.Color(48, 29, 39));
+        heading.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        heading.setForeground(new java.awt.Color(255, 255, 255));
+        heading.setText("DATA COLLECTED");
+        heading.setOpaque(true);
+        getContentPane().add(heading, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 240, 30));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dataSheetBg.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 210));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/InfoScreen.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
