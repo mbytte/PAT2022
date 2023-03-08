@@ -207,6 +207,8 @@ public class ChangingScreenMethods
     
     
     //opens the game screen from the area that the user has selected
+    //THIS NEEDS TO BE CHANGED BECAUSE THIS SHOULD BE IN THE FRONTEND AND NOT HERE
+    //CHANGE THIS TO SOME SORT OF SWITCH CASE
     public void openGame()
     {
         //checks which options the user has selected and opens the associated screen
@@ -235,6 +237,7 @@ public class ChangingScreenMethods
     
     
     //opens the screen that is needed
+    //THIS NEEDS TO BE IN THE FRONTEND AND NOT HERE BECAUSE LIKE WHY IS THIS HERE?
     public void openPreviousGame()
     {
         //will only ever be needed for these two options (only games that the user can fail)
@@ -252,6 +255,7 @@ public class ChangingScreenMethods
     
     
     //opens the screen that is needed
+    //HOW MANY OF THESE DID YOU DO??? PUT IT INTO THE FRONTEND NOT HERE
     public void openNextScreen()
     {
         //opens a screen thats only for the door option

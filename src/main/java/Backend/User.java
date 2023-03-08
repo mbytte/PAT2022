@@ -12,6 +12,8 @@ package Backend;
 public class User
 {
     //object properties
+    //CHANGE THE VARIABLE NAMES TO BE BASED ON THE TYPE OF GAME (e.g. hangman)
+    //need to add an ID number here to be referenced in the database
     private final String username;
     private boolean completedBrokenPicFrames;
     private boolean completedMusicBox;

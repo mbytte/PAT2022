@@ -20,6 +20,7 @@ import java.util.Scanner;
 public class UserManager
 {
     //variables
+    //need to add a variable that keeps track of the amount of user IDs in the DB
     private ArrayList<User> users;
     private static String  filepath = "data\\users.txt";
     private static int currentUserIndex;
@@ -28,6 +29,8 @@ public class UserManager
     
     //constructor
     //creates an array list of users
+    // NEED TO FIND OUT HOW TO CREATE AN ARRAY OF THE USERS FROM THE DATABASE
+    //so this whole thing is gonna change
     public UserManager()
     {
         //initialising
@@ -138,6 +141,7 @@ public class UserManager
     
     
     //deletes a user profile
+    //NEED TO CHANGE THE DB INSTEAD OF THE TEXTFILE
     public void delete(int selectedIndex)
     {
         //using an arrayList function to delete a user from the selected index in the array list
@@ -172,6 +176,7 @@ public class UserManager
     
     
     //saves the users new information to the textfile
+    //NEED TO CHANGE THE DB INSTEAD OF A STRING
     public void save(int selectedIndex, User currentUser)
     {
         //variables

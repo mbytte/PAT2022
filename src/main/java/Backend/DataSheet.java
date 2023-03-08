@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class DataSheet
 {
     //variables
+    // CHANGE VARIABLE NAMES TO BE THE NAMES OF THE GAMES RATHER THAN THE NAMES OF THE PLACES WHERE IT HAPPENS (e.g. hangman)
     private static boolean completedBrokenPicFrames;
     private static boolean completedMusicBox ;
     private static boolean completedTornPics;
@@ -25,13 +26,10 @@ public class DataSheet
     //constructor
     public DataSheet(User currentUser)
     {
-        //setting the variables to be whatever data is saved
-        boolean isCompletedBrokenPicFrames = currentUser.isCompletedBrokenPicFrames();
-        boolean isCompletedMusicBox = currentUser.isCompletedMusicBox();
-        boolean isCompletedTornPics = currentUser.isCompletedTornPics();
-        completedBrokenPicFrames = isCompletedBrokenPicFrames;
-        completedMusicBox = isCompletedMusicBox;
-        completedTornPics = isCompletedTornPics;     
+        //setting the variables to what the useer has been completed and what hasn't been completed
+        completedBrokenPicFrames = currentUser.isCompletedBrokenPicFrames();
+        completedMusicBox = currentUser.isCompletedMusicBox();
+        completedTornPics = currentUser.isCompletedTornPics();
     }
 
     
@@ -49,7 +47,7 @@ public class DataSheet
     {
         this.completedTornPics = completedTornPics;
     }
-    public void setGame(String game)
+    public void setGame(String game) //sets the game variable to be whatever part of the game the user wants to get data for
     {
         this.game = game;
     }
@@ -57,6 +55,7 @@ public class DataSheet
     
     
     //gets the data from the text file only if the game task is complete
+    //THIS WILL HAVE TO CHANGE TO THE DATABASE WAY OF COLLECTING THIS DATA
     public String getCompletedGameData(User currentUser)
     {
         //variables
@@ -75,7 +74,7 @@ public class DataSheet
             //getting to the position where the required information is in the file
             String info = "";
             //getting info for broken picture frames
-            if(game.equals("brokenPicFrames")&&currentUser.isCompletedBrokenPicFrames())
+            if(game.equals("brokenPicFrames")&&completedBrokenPicFrames)
             {
                 for(int i = 0; i < 2; i++)
                 {     
@@ -83,12 +82,12 @@ public class DataSheet
                 }
             }
             //getting info for music box
-            else if(game.equals("musicBox")&&currentUser.isCompletedMusicBox())
+            else if(game.equals("musicBox")&&completedMusicBox)
             {  
                 info = lineScanner.next();
             }
             //getting info for torn up pictures
-            else if(game.equals("tornUpPics")&&currentUser.isCompletedTornPics())
+            else if(game.equals("tornUpPics")&&completedTornPics)
             {
                 for(int i = 0; i < 3; i++)
                 {     
